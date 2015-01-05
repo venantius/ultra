@@ -1,24 +1,30 @@
 (ns ultra.repl
   (:require [clojure.tools.nrepl.middleware.render-values :refer [render-values]]
-            [clojure.tools.nrepl.middleware :as middleware]
             [clojure.tools.nrepl.server]
-            [robert.hooke :refer [add-hook]]
-            ))
+            [io.aviso.nrepl :refer [pretty-middleware]]
+            [robert.hooke :refer [add-hook]]))
 
-(def default-cprint-handler
-  (partial
-    clojure.tools.nrepl.server/default-handler
-    #'render-values))
+(defn add-middleware
+  "Alter the default handler to include the provided middleware"
+  [middleware]
+  (alter-var-root
+    #'clojure.tools.nrepl.server/default-handler
+    partial
+    middleware))
 
 (defn add-whidbey-middleware
-  "Intern `(default-handler)` in `clojure.tools.nrepl.server` as a partial
-  of itself with the Whidbey render-values middleware included."
+  "Add Whidbey's render-values middleware."
   []
-  (intern 'clojure.tools.nrepl.server 'default-handler #'default-cprint-handler))
+  (add-middleware #'render-values))
+
+(defn add-pretty-middleware
+  "Add Aviso's Pretty middleware."
+  []
+  #_(add-middleware #'pretty-middleware))
 
 (defn configure-repl!
   "Was the fn name not clear enough?"
   []
   (add-whidbey-middleware)
-  (println "Configured repl!")
+  (add-pretty-middleware)
   )

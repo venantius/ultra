@@ -6,8 +6,7 @@
 
 (defn run-configuration
   []
-  (repl/configure-repl!)
-  (println "Configurated!"))
+  (repl/configure-repl!))
 
 (defn configure! []
   (if (empty? @configured?)

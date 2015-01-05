@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/tools.nrepl "0.2.5"]
 
+                 [io.aviso/pretty "0.1.13"]
                  [mvxcvi/whidbey "0.4.2"]
                  [robert/hooke "1.3.0"]]
   :eval-in-leiningen true)
