@@ -7,7 +7,7 @@ libraries and plugins all in a single place. It aims to provide an absolutely
 kick-ass development environment by providing the following:
 
 A colorized REPL!
-![My image](venantius.github.com/ultra/img/image.jpg)
+![My image](venantius.github.io/ultra/images/colorized-repl.png)
 >> INSERT PHOTO OF DB QUERY IN REPL
 
 Better REPL stacktraces!
