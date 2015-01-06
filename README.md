@@ -6,20 +6,19 @@ Ultra is a Leiningen plugin that collects and configures a number of disparate
 libraries and plugins all in a single place. It aims to provide an absolutely 
 kick-ass development environment by providing the following:
 
-A colorized REPL!
-![My image](https://venantius.github.io/ultra/images/colorized-repl.png)
->> INSERT PHOTO OF DB QUERY IN REPL
+*A colorized REPL!*
+![colorized repl](https://venantius.github.io/ultra/images/colorized-repl.png)
 
-Better REPL stacktraces!
+*Better REPL stacktraces!*
 >> INSERT IMAGE OF EXCEPTION THROWN IN REPL
 
-Colorized diffs of your test failures!
+*Colorized diffs of your test failures!*
 >> INSERT IMAGE OF TEST FAILURE
 
-Better test stacktraces!
->> INSERT IMAGE OF EXCEPTION THROWN IN TEST
+*Better test stacktraces!*
+![test stacktrace demo](https://venantius.github.io/ultra/images/colorized-test-stacktrace.png)
 
-Java object introspection at hand!
+*Java object introspection at hand!*
 >> INSERT JAVA OBJECT INTROSPECTION
 
 ## Motivation
