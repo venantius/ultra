@@ -1,4 +1,4 @@
-(defproject venantius/ultra "0.1.0"
+(defproject venantius/ultra "0.1.1"
   :description "Ultra: opinonated development environmnent configuration"
   :url "http://github.com/venantius/ultra"
   :license {:name "Eclipse Public License"

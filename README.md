@@ -56,7 +56,7 @@ Add the following to your `:user` profile:
 
 
 
-## TODO
+## Todo
 
 - [x] Whidbey integration for REPL
 - [x] Aviso/Pretty integration for REPL
@@ -72,6 +72,9 @@ slamhound?
 iroh
 repetition-hunter
 lein-ancient
+
+bugs
+- [ ] `ultra.plugin/add-ultra` gets run more than once. use an atom to manage state.
 
 ## Contributing
 
