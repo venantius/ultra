@@ -6,6 +6,8 @@ Ultra is a Leiningen plugin that collects and configures a number of disparate
 libraries and plugins all in a single place. It aims to provide an absolutely 
 kick-ass development environment by providing the following:
 
+## Features
+
 *A colorized REPL!*
 ![colorized repl](https://venantius.github.io/ultra/images/colorized-repl.png)
 
@@ -56,8 +58,9 @@ Add the following to your `:user` profile:
 
 ## TODO
 
-- [x] Pretty integration for REPL
-- [ ] Pretty integration for tests
+- [x] Whidbey integration for REPL
+- [x] Aviso/Pretty integration for REPL
+- [x] Aviso/Pretty integration for tests
 - [ ] lein difftest or humane-test-output for tests
 
 wishlist?

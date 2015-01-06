@@ -1,7 +1,10 @@
 (ns ultra.repl
-  (:require [clojure.tools.nrepl.middleware.render-values :refer [render-values]]
+  (:require [clojure.main :as main]
+            [clojure.repl :as repl]
+            [clojure.stacktrace :as stacktrace]
+            [clojure.tools.nrepl.middleware.render-values :refer [render-values]]
             [clojure.tools.nrepl.server]
-            [io.aviso.repl :refer [install-pretty-exceptions]]
+            [io.aviso.repl :as pretty-repl]
             [robert.hooke :refer [add-hook]]))
 
 (defn add-middleware
@@ -20,11 +23,12 @@
 (defn add-pretty-middleware
   "Add Aviso's Pretty functionality"
   []
-  (install-pretty-exceptions))
+  #_(reset-var! #'main/repl-caught pretty-repl-caught)
+  #_(reset-var! #'repl/pst pretty-pst)
+  #_(pretty-repl/install-pretty-exceptions))
 
 (defn configure-repl!
   "Was the fn name not clear enough?"
   []
   (add-whidbey-middleware)
-  (add-pretty-middleware)
-  )
+  (add-pretty-middleware))
