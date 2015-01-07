@@ -7,7 +7,7 @@
   [project]
   (-> project
       (update-in [:dependencies] concat
-                 `[[venantius/ultra "0.1.1"]])
+                 `[[venantius/ultra "0.1.2"]])
       (update-in [:injections] concat
                  `[(require 'ultra.hardcore)
                    (ultra.hardcore/configure!)])

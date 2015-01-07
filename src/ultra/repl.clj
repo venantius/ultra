@@ -27,8 +27,7 @@
     (constantly pretty-repl/pretty-repl-caught))
   (alter-var-root
     #'repl/pst
-    (constantly pretty-repl/pretty-pst))
-  )
+    (constantly pretty-repl/pretty-pst)))
 
 (defn configure-repl!
   "Was the fn name not clear enough?"
