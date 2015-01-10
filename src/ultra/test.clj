@@ -5,26 +5,15 @@
             [pjstadig.humane-test-output :as hto]
             [puget.ansi :as ansi]
             [puget.printer :as printer]
+            [ultra.test.diff :as diff]
             [whidbey.render :as render]))
 
-(defn without-meta
-  "If the object contains metadata, remove it"
-  [x]
-  (if (meta x)
-    (with-meta x nil)
-    x))
-
-(defn cprint
-  [x]
-  (printer/cprint x render/puget-options))
-
-(defn print-expected
-  [actual expected]
-  (print "\nexpected: ")
-  (cprint (without-meta expected))
-  (print "  actual: ")
-  (cprint (without-meta actual))
-  (print "\n"))
+(defn thing
+  [a more]
+  (map vector
+       more
+       (map #(take 2 (data/diff a %))
+            more)))
 
 (defonce activation-body
   (delay
@@ -38,10 +27,7 @@
                             :expected a#, :actual more#})
                 (do-report {:type :fail, :message ~msg,
                             :expected a#, :actual more#,
-                            :diffs (map vector
-                                        more#
-                                        (map #(take 2 (data/diff a# %))
-                                             more#))}))
+                            :diffs (thing a# more#)}))
               result#)
             (throw (Exception. "= expects more than one argument")))))
 
@@ -55,16 +41,8 @@
          (if (seq diffs)
            (doseq [[actual [a b]] diffs
                    :when (or a b)]
-             (print-expected actual expected)
-             (print "    diff:")
-             (if a
-               (do (print (ansi/sgr " - " :red))
-                   (cprint a)
-                   (print (ansi/sgr "          + " :green)))
-               (print (ansi/sgr " + " :green)))
-             (when b
-               (cprint b)))
-           (print-expected actual expected)))))))
+             (diff/prn-diffs a b actual expected))
+           (diff/print-expected actual expected)))))))
 
 (defn activate! []
   @activation-body)

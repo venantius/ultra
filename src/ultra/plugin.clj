@@ -7,13 +7,10 @@
   [project]
   (-> project
       (update-in [:dependencies] concat
-                 `[[venantius/ultra "0.1.2"]])
+                 `[[venantius/ultra "0.1.3"]])
       (update-in [:injections] concat
                  `[(require 'ultra.hardcore)
-                   (ultra.hardcore/configure!)])
-      #_(update-in [:repl-options] dissoc :nrepl-middleware)
-
-      ))
+                   (ultra.hardcore/configure!)])))
 
 (defn middleware
   "Load all Ultra middleware."

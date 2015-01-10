@@ -1,4 +1,4 @@
-(defproject venantius/ultra "0.1.2"
+(defproject venantius/ultra "0.1.3"
   :description "Ultra: opinonated development environmnent configuration"
   :url "http://github.com/venantius/ultra"
   :license {:name "Eclipse Public License"
@@ -8,6 +8,7 @@
 
                  [io.aviso/pretty "0.1.13"]
                  [mvxcvi/whidbey "0.4.2"]
+                 [org.clojars.brenton/google-diff-match-patch "0.1"]
                  [pjstadig/humane-test-output "0.6.0"]
                  [robert/hooke "1.3.0"]]
   :eval-in-leiningen true)

@@ -2,14 +2,16 @@
 
 Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
-Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development environment; "sensible defaults" be damned.
+Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development environment.
+
+"Sensible defaults" be damned.
 
 ## Installation
 
 Add the following to your `:user` profile:
 
 ```clojure
-[venantius/ultra "0.1.0"]
+[venantius/ultra "0.1.3"]
 ```
 
 ## Features
@@ -42,29 +44,25 @@ it out into its own project.
 
 ## Todo
 
-- [x] Whidbey integration for REPL
-- [x] Aviso/Pretty integration for REPL
-- [x] Aviso/Pretty integration for tests
-- [x] lein difftest or humane-test-output for tests
+- [ ] prn-diffs for lists / vectors
+- [ ] prn-diffs for sets
 - [ ] Sync Aviso colorscheme to whidbey.render/puget-options
-- [ ] Take a look at the way Expectations handles test output for different data types and providers superior failure reporting
 - [ ] Iroh
+- [ ] Slamhound?
 
 wishlist?
 - [ ] lein-kibit
 - [ ] lein-bikeshed
 - [ ] lein-eastwood
-
-slamhound?
-iroh
-repetition-hunter
-lein-ancient
+- [ ] repetition-hunter
 
 ## Contributing
 
 Please open an issue here before submitting pull requests; I prefer to have documentation and consensus that either of our time will be well spent by working on it. 
 
 Bug fixes are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is a massive exercise in ego, after all.
+
+PRs for new color schemes welcome; please include screenshots in your submission.
 
 ## Special Thanks
 
@@ -79,7 +77,6 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
 
 ## License
 
-All copyrights by initial authors remain their own.
-All revisions are copyright © 2015 W. David Jarvis.
+Anything that isn't already copyright of one of the above is Copyright © 2015 W. David Jarvis.
 
 Distributed under the Eclipse Public License 1.0, the same as Clojure.
