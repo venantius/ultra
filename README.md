@@ -4,8 +4,6 @@ Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development environment.
 
-"Sensible defaults" be damned.
-
 ## Installation
 
 Add the following to your `:user` profile:
@@ -31,7 +29,7 @@ Add the following to your `:user` profile:
 ## Configuration
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.3"]]
+{:user {:plugins [[venantius/ultra "0.1.4"]]
         :ultra {:color-scheme :solarized_dark
                 :width 80
                 :print-color true}}}
@@ -43,10 +41,10 @@ At the moment Ultra supports the following color schemes:
  - `:solarized_dark`
  - `:default`
 
-PRs for additional color schemes are more than welcome, but if you just want to set the colors yourself you can configure them directly, e.g.:
+If you want to set the colors yourself instead of using a theme you can configure them directly, e.g.:
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.3"]]
+{:user {:plugins [[venantius/ultra "0.1.4"]]
         :ultra {:print-color true
                 :color-scheme {:delimiter [:red]
                                :tag [:red]
@@ -68,6 +66,7 @@ PRs for additional color schemes are more than welcome, but if you just want to 
 - [ ] prn-diffs for lists / vectors
 - [ ] prn-diffs for sets
 - [ ] Sync Aviso colorscheme to whidbey.render/puget-options
+- [ ] Pomegranate for hot dependency loading
 - [ ] Iroh
 - [ ] Slamhound?
 
@@ -83,7 +82,7 @@ Please open an issue here before submitting pull requests; I prefer to have docu
 
 Bug fixes are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is a massive exercise in ego, after all.
 
-PRs for new color schemes welcome; please include screenshots in your submission.
+Pull Requests for new color schemes welcome; please include screenshots in your submission.
 
 ## Motivation
 
