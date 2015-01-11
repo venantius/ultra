@@ -1,3 +1,7 @@
+## 0.1.4
+ * Added support for default colorschemesa
+ * Options loading from the `:ultra` key
+
 ## 0.1.3
  * Better string-diffing for tests
  * Map diffs are now aligned properly

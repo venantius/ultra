@@ -1,0 +1,16 @@
+{
+ :delimiter nil
+ :tag       nil
+
+ :nil       nil
+ :boolean   nil
+ :number    nil
+ :string    nil
+ :character nil
+ :keyword   nil
+ :symbol    nil
+
+ :function-symbol nil
+ :class-delimiter nil
+ :class-name nil
+}

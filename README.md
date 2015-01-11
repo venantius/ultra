@@ -11,7 +11,7 @@ Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development
 Add the following to your `:user` profile:
 
 ```clojure
-[venantius/ultra "0.1.3"]
+[venantius/ultra "0.1.4"]
 ```
 
 ## Features
@@ -25,25 +25,46 @@ Add the following to your `:user` profile:
 *Better stacktraces! In both the REPL and tests!*
 ![test stacktrace demo](https://venantius.github.io/ultra/images/colorized-test-stacktrace.png)
 
-*Java object introspection at hand!*
+*Java object introspection!*
 >> INSERT JAVA OBJECT INTROSPECTION
 
-## Motivation
+## Configuration
 
-...or, why didn't you just put all of this stuff in your `~/.lein/profiles.clj`?
+```clojure
+{:user {:plugins [[venantius/ultra "0.1.3"]]
+        :ultra {:color-scheme :solarized_dark
+                :width 80
+                :print-color true}}}
+```
 
-Great question, hypothetical asker! In short, my `:user` profile was starting to 
-become bloated. It was difficult to tell whether plugins were interfering with 
-each other to create problems, and my `:injections` key in particular was 
-starting to look a little unwieldy. 
+### Color schemes
 
-As I got further down the route of configuring my environment, I started to add
-or re-write core functionality of other tools, and eventually ended up really
-rummaging around in the guts of things. At some point it just made sense to split
-it out into its own project.
+At the moment Ultra supports the following color schemes:
+ - `:solarized_dark`
+ - `:default`
+
+PRs for additional color schemes are more than welcome, but if you just want to set the colors yourself you can configure them directly, e.g.:
+
+```clojure
+{:user {:plugins [[venantius/ultra "0.1.3"]]
+        :ultra {:print-color true
+                :color-scheme {:delimiter [:red]
+                               :tag [:red]
+                               :nil [:cyan]
+                               :boolean [:cyan]
+                               :number [:cyan]
+                               :string [:cyan]
+                               :character [:cyan]
+                               :keyword [:green]
+                               :symbol nil
+                               :function-symbol [:blue]
+                               :class-delimiter [:blue]
+                               :class-name nil}}}}
+```
 
 ## Todo
 
+- [ ] Only run add-ultra once
 - [ ] prn-diffs for lists / vectors
 - [ ] prn-diffs for sets
 - [ ] Sync Aviso colorscheme to whidbey.render/puget-options
@@ -63,6 +84,20 @@ Please open an issue here before submitting pull requests; I prefer to have docu
 Bug fixes are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is a massive exercise in ego, after all.
 
 PRs for new color schemes welcome; please include screenshots in your submission.
+
+## Motivation
+
+...or, why didn't you just put all of this stuff in your `~/.lein/profiles.clj`?
+
+Great question, hypothetical asker! In short, my `:user` profile was starting to 
+become bloated. It was difficult to tell whether plugins were interfering with 
+each other to create problems, and my `:injections` key in particular was 
+starting to look a little unwieldy. 
+
+As I got further down the route of configuring my environment, I started to add
+or re-write core functionality of other tools, and eventually ended up really
+rummaging around in the guts of things. At some point it just made sense to split
+it out into its own project.
 
 ## Special Thanks
 
