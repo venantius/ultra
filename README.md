@@ -20,7 +20,7 @@ Add the following to your `:user` profile:
 *Clearer test output!*
 ![test output demo](https://venantius.github.io/ultra/images/test-output.png)
 
-*Better stacktraces! In both the REPL and tests!*
+*Better stacktraces!*
 ![test stacktrace demo](https://venantius.github.io/ultra/images/colorized-test-stacktrace.png)
 
 *Java object introspection!*
