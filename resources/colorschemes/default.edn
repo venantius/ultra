@@ -13,4 +13,6 @@
  :function-symbol nil
  :class-delimiter nil
  :class-name nil
+
+ :exception nil
 }

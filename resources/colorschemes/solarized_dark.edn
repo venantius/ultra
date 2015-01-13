@@ -13,4 +13,6 @@
  :function-symbol [:blue]
  :class-delimiter [:blue]
  :class-name nil
+
+ :exception [:red]
 }

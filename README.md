@@ -9,7 +9,7 @@ Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development
 Add the following to your `:user` profile:
 
 ```clojure
-[venantius/ultra "0.1.4"]
+[venantius/ultra "0.1.5"]
 ```
 
 ## Features
@@ -29,7 +29,7 @@ Add the following to your `:user` profile:
 ## Configuration
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.4"]]
+{:user {:plugins [[venantius/ultra "0.1.5"]]
         :ultra {:color-scheme :solarized_dark
                 :width 80
                 :print-color true}}}
@@ -44,7 +44,7 @@ At the moment Ultra supports the following color schemes:
 If you want to set the colors yourself instead of using a theme you can configure them directly, e.g.:
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.4"]]
+{:user {:plugins [[venantius/ultra "0.1.5"]]
         :ultra {:print-color true
                 :color-scheme {:delimiter [:red]
                                :tag [:red]
@@ -57,15 +57,16 @@ If you want to set the colors yourself instead of using a theme you can configur
                                :symbol nil
                                :function-symbol [:blue]
                                :class-delimiter [:blue]
-                               :class-name nil}}}}
+                               :class-name nil
+                               :exception nil}}}}
 ```
 
 ## Todo
 
 - [ ] Only run add-ultra once
+- [ ] Swap the class mismatch text around, expected should be actual and vice-versa
 - [ ] prn-diffs for lists / vectors
 - [ ] prn-diffs for sets
-- [ ] Sync Aviso colorscheme to whidbey.render/puget-options
 - [ ] Pomegranate for hot dependency loading
 - [ ] Iroh
 - [ ] Slamhound?
@@ -111,6 +112,6 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
 
 ## License
 
-Anything that isn't already copyright of one of the above is Copyright © 2015 W. David Jarvis.
+Anything that isn't already copyright of one of the above authors is Copyright © 2015 W. David Jarvis.
 
 Distributed under the Eclipse Public License 1.0, the same as Clojure.

@@ -1,3 +1,7 @@
+## 0.1.5
+ * Colorscheme bugfix
+ * Changed stacktrace printing to use colorscheme
+
 ## 0.1.4
  * Added support for default colorschemesa
  * Options loading from the `:ultra` key
