@@ -1,15 +1,18 @@
 # Ultra
+[![Build Status](https://travis-ci.org/venantius/ultra.svg?branch=adding_java)](https://travis-ci.org/venantius/ultra)
+[![Dependency Status](https://www.versioneye.com/user/projects/54b5674f050646ca5c000068/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54b5674f050646ca5c000068)
 
 Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development environment.
 
-## Installation
+## "Installation" and Configuration
 
-Add the following to your `:user` profile:
+To install and configure Ultra, add something like the following to your `~/.lein/profiles.clj`
 
 ```clojure
-[venantius/ultra "0.1.6"]
+{:user {:plugins [[venantius/ultra "0.1.6"]]
+        :ultra {:color-scheme :solarized_dark}}}
 ```
 
 ## Features
@@ -23,17 +26,8 @@ Add the following to your `:user` profile:
 *Better stacktraces!*
 ![test stacktrace demo](https://venantius.github.io/ultra/images/colorized-test-stacktrace.png)
 
-*Java object introspection!*
->> INSERT JAVA OBJECT INTROSPECTION
-
-## Configuration
-
-```clojure
-{:user {:plugins [[venantius/ultra "0.1.6"]]
-        :ultra {:color-scheme :solarized_dark
-                :width 80
-                :print-color true}}}
-```
+*Java object introspection via [Iroh](https://github.com/zcaudate/iroh)!*
+![java introspection](https://venantius.github.io/ultra/images/java-interop.png)
 
 ### Color schemes
 
@@ -45,8 +39,7 @@ If you want to set the colors yourself instead of using a theme you can configur
 
 ```clojure
 {:user {:plugins [[venantius/ultra "0.1.6"]]
-        :ultra {:print-color true
-                :color-scheme {:delimiter [:red]
+        :ultra {:color-scheme {:delimiter [:red]
                                :tag [:red]
                                :nil [:cyan]
                                :boolean [:cyan]
@@ -63,12 +56,14 @@ If you want to set the colors yourself instead of using a theme you can configur
 
 ## Todo
 
+- [ ] Intern Iroh stuff into ultra.reflect
+http://stackoverflow.com/questions/20831029/how-is-it-possible-to-intern-macros-in-clojure
 - [ ] Only run add-ultra once
-- [ ] Swap the class mismatch text around, expected should be actual and vice-versa
+- [ ] OSS badges: travis
 - [ ] prn-diffs for lists / vectors
 - [ ] prn-diffs for sets
+- [ ] Jig / component?
 - [ ] Pomegranate for hot dependency loading
-- [ ] Iroh
 - [ ] Slamhound?
 
 wishlist?
@@ -109,6 +104,7 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
  - [greglook/whidbey](https://github.com/greglook/whidbey) - Puget nREPL middleware
  - [jaycfields/expectations](https://github.com/jaycfields/expectations) - The Expectations testing library
  - [pjstadig/humane-test-output](https://github.com/pjstadig/humane-test-output) - Diffs in tests using clojure.test
+ - [zcaudate/iroh](https://github.com/zcaudate/iroh) - Java reflection made easy
 
 ## License
 

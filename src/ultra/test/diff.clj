@@ -47,10 +47,8 @@
   (print-expected actual expected)
   (let [puget-str (fn [x] (s/trim-newline (with-out-str (cprint x))))]
     (println)
-    (println "expected:" (puget-str a) "to be an instance of" (class b))
-    (println "     was:" (puget-str a) "is an instance of" (class a))))
-
-
+    (println "expected:" (puget-str b) "to be an instance of" (class a))
+    (println "     was:" (puget-str b) "is an instance of" (class b))))
 
 (defmethod prn-diffs :default [a b actual expected]
   (print-expected-map actual expected)

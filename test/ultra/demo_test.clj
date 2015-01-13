@@ -1,5 +1,5 @@
-(ns test.ultra.demo-test
-  "Tests for screenshots"
+(ns ^:demo test.ultra.demo-test
+  "Tests for screenshot purposes."
   (:require [clojure.test :refer :all]))
 
 (deftest exception-is-thrown

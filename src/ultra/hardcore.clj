@@ -4,6 +4,7 @@
             [clojure.java.io :as io]
             [robert.hooke :refer [add-hook]]
             [ultra.colorscheme :refer [set-colorscheme]]
+            [ultra.reflect]
             [ultra.repl :as repl]
             [ultra.stacktrace :as stacktrace]
             [ultra.test]))

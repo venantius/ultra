@@ -1,23 +1,13 @@
-(ns test.ultra.test-test
+(ns ^:demo test.ultra.test-test
+  "More comprehensive tests for screenshot purposes."
   (:require [clojure.test :refer :all]))
-
-(deftest exception-is-thrown
-  (is (contains? 5 :b)))
 
 (deftest string-comparisons
   (is (= "strings equal" "strings equal"))
-  (is (= "space" "spice" "spork"))
   (is (= "balloon" "baloon"))
   (is (= "animal" "imal")))
 
-(deftest types-that-dont-match
-  (is (= "1" 2)))
-
 (deftest comparing-maps
-  (is (= {:alpha "Thing"
-          :gamma "Triple thing"}
-         {:alpha "Thing"
-          :beta "Other thing"}))
   (is (= {:gamma {:beta "Other thing"
                   :boogaloo "Is a mighty fine shoe."
                   :wizards "Are the mightest kings of yore."
@@ -31,7 +21,3 @@
           :zeta {:feta "heh"}
           :bonk true
           :wonk false})))
-
-(deftest comparing-things
-  (is (true? true))
-  (is (false? true)))

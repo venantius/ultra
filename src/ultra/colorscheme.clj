@@ -5,9 +5,10 @@
             [puget.ansi]
             [whidbey.render]))
 
-(def VALID_COLORSCHEMES
-  #{:solarized_dark
-    :default})
+(defn valid-colorscheme?
+ [k]
+ (#{:solarized_dark
+    :default} k))
 
 (defn valid-ansi-color?
   [k]
@@ -16,7 +17,7 @@
 (defn load-colorscheme
   "Either load the provided colorscheme, or use the default."
   [colorscheme]
-  (let [colorscheme (or (VALID_COLORSCHEMES colorscheme) :default)]
+  (let [colorscheme (or (valid-colorscheme? colorscheme) :default)]
     (edn/read-string
       (slurp
         (io/resource
