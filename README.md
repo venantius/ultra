@@ -9,7 +9,7 @@ Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development
 Add the following to your `:user` profile:
 
 ```clojure
-[venantius/ultra "0.1.5"]
+[venantius/ultra "0.1.6"]
 ```
 
 ## Features
@@ -29,7 +29,7 @@ Add the following to your `:user` profile:
 ## Configuration
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.5"]]
+{:user {:plugins [[venantius/ultra "0.1.6"]]
         :ultra {:color-scheme :solarized_dark
                 :width 80
                 :print-color true}}}
@@ -44,7 +44,7 @@ At the moment Ultra supports the following color schemes:
 If you want to set the colors yourself instead of using a theme you can configure them directly, e.g.:
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.5"]]
+{:user {:plugins [[venantius/ultra "0.1.6"]]
         :ultra {:print-color true
                 :color-scheme {:delimiter [:red]
                                :tag [:red]
@@ -91,12 +91,12 @@ Pull Requests for new color schemes welcome; please include screenshots in your 
 
 Great question, hypothetical asker! In short, my `:user` profile was starting to 
 become bloated. It was difficult to tell whether plugins were interfering with 
-each other to create problems, and my `:injections` key in particular was 
+each other, and my `:injections` key in particular was 
 starting to look a little unwieldy. 
 
-As I got further down the route of configuring my environment, I started to add
-or re-write core functionality of other tools, and eventually ended up really
-rummaging around in the guts of things. At some point it just made sense to split
+As I got further down the road of configuring my environment, I started to re-write
+the core functionality of my other tools, and eventually ended up deep
+in the guts of things. At some point it just made sense to split
 it out into its own project.
 
 ## Special Thanks
