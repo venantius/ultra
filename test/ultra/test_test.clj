@@ -1,4 +1,4 @@
-(ns ^:demo test.ultra.test-test
+(ns ^:demo ultra.test-test
   "More comprehensive tests for screenshot purposes."
   (:require [clojure.test :refer :all]))
 

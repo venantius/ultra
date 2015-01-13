@@ -1,4 +1,4 @@
-(ns test.ultra.hardcore-test
+(ns ultra.hardcore-test
   (:require [clojure.test :refer :all]))
 
 (deftest working-test

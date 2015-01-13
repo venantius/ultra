@@ -1,5 +1,5 @@
 # Ultra
-[![Build Status](https://travis-ci.org/venantius/ultra.svg?branch=adding_java)](https://travis-ci.org/venantius/ultra)
+[![Build Status](https://travis-ci.org/venantius/ultra.svg?branch=master)](https://travis-ci.org/venantius/ultra)
 [![Dependency Status](https://www.versioneye.com/user/projects/54b5674f050646ca5c000068/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54b5674f050646ca5c000068)
 
 Hey, you know who has two thumbs and strong opinions? That's right, it's me.
