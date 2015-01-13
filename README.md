@@ -6,7 +6,7 @@ Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development environment.
 
-## "Installation" and Configuration
+## Installation and Configuration
 
 To install and configure Ultra, add something like the following to your `~/.lein/profiles.clj`
 
@@ -59,12 +59,10 @@ If you want to set the colors yourself instead of using a theme you can configur
 - [ ] Intern Iroh stuff into ultra.reflect
 http://stackoverflow.com/questions/20831029/how-is-it-possible-to-intern-macros-in-clojure
 - [ ] Only run add-ultra once
-- [ ] OSS badges: travis
 - [ ] prn-diffs for lists / vectors
 - [ ] prn-diffs for sets
 - [ ] Jig / component?
 - [ ] Pomegranate for hot dependency loading
-- [ ] Slamhound?
 
 wishlist?
 - [ ] lein-kibit
@@ -108,6 +106,6 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
 
 ## License
 
-Anything that isn't already copyright of one of the above authors is Copyright © 2015 W. David Jarvis.
+Copyright © 2015 W. David Jarvis for anything that someone above didn't write first.
 
 Distributed under the Eclipse Public License 1.0, the same as Clojure.
