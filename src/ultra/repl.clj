@@ -24,7 +24,7 @@
   []
   (alter-var-root
     #'main/repl-caught
-    (constantly pretty-repl/pretty-repl-ct)) ;; should this just pretty-pst ?
+    (constantly pretty-repl/pretty-repl-caught)) ;; should this just pretty-pst ?
   (alter-var-root
     #'repl/pst
     (constantly pretty-repl/pretty-pst)))
