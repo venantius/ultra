@@ -5,5 +5,6 @@ pom.xml
 pom.xml.asc
 *.jar
 *.class
+/TODO
 /.lein-*
 /.nrepl-port

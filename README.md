@@ -54,27 +54,11 @@ If you want to set the colors yourself instead of using a theme you can configur
                                :exception nil}}}}
 ```
 
-## Todo
-
-- [ ] Intern Iroh stuff into ultra.reflect
-http://stackoverflow.com/questions/20831029/how-is-it-possible-to-intern-macros-in-clojure
-- [ ] Only run add-ultra once
-- [ ] prn-diffs for lists / vectors
-- [ ] prn-diffs for sets
-- [ ] Jig / component?
-- [ ] Pomegranate for hot dependency loading
-
-wishlist?
-- [ ] lein-kibit
-- [ ] lein-bikeshed
-- [ ] lein-eastwood
-- [ ] repetition-hunter
-
 ## Contributing
 
 Please open an issue here before submitting pull requests; I prefer to have documentation and consensus that either of our time will be well spent by working on it. 
 
-Bug fixes are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is a massive exercise in ego, after all.
+Bug fixes are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is something of a massive exercise in ego, after all.
 
 Pull Requests for new color schemes welcome; please include screenshots in your submission.
 
@@ -82,15 +66,10 @@ Pull Requests for new color schemes welcome; please include screenshots in your 
 
 ...or, why didn't you just put all of this stuff in your `~/.lein/profiles.clj`?
 
-Great question, hypothetical asker! In short, my `:user` profile was starting to 
-become bloated. It was difficult to tell whether plugins were interfering with 
-each other, and my `:injections` key in particular was 
+In short, my `:user` profile was starting to become bloated. It was difficult to tell whether plugins were interfering with each other, and my `:injections` key in particular was 
 starting to look a little unwieldy. 
 
-As I got further down the road of configuring my environment, I started to re-write
-the core functionality of my other tools, and eventually ended up deep
-in the guts of things. At some point it just made sense to split
-it out into its own project.
+At some point I realized I was up to my neck in alligators and that it was time to push things into a standalone repository.
 
 ## Special Thanks
 
