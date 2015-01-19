@@ -1,23 +1,26 @@
 (ns ultra.hardcore
-  "See what I did with the ns name?"
-  (:require [clojure.edn :as edn]
-            [clojure.java.io :as io]
-            [robert.hooke :refer [add-hook]]
-            [ultra.colorscheme :refer [set-colorscheme]]
-            [ultra.reflect]
+  "See what I did there?"
+  (:require [ultra.colorscheme :as colorscheme]
+            [ultra.reflect :as reflect]
             [ultra.repl :as repl]
             [ultra.stacktrace :as stacktrace]
-            [ultra.test]))
+            [ultra.test :as test]))
 
 (def configured? (atom {}))
 
 (defn run-configuration
+  "Initialize and configure Ultra's various components."
+  {:added "0.1.0"}
   [opts]
-  (set-colorscheme opts)
+  (colorscheme/set-colorscheme opts)
   (repl/configure-repl!)
   (stacktrace/configure-stacktraces!)
-  (ultra.test/activate!))
+  (test/activate!)
+  (reflect/inject-java-functions))
 
-(defn configure! [opts]
+(defn configure!
+  "Only run the configuration step once."
+  {:added "0.1.0"}
+  [opts]
   (if (empty? @configured?)
     (swap! configured? assoc :config (run-configuration opts))))

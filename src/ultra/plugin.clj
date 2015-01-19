@@ -4,6 +4,7 @@
 
 (defn add-ultra
   "Add ultra as a project dependency and inject configuration."
+  {:added "0.1.0"}
   [project]
   (let [opts (-> (:ultra project)
                  (assoc :print-meta false
@@ -21,8 +22,10 @@
                    `{:nrepl-middleware [clojure.tools.nrepl.middleware.render-values/render-values]
                      :nrepl-context {:interactive-eval {:renderer whidbey.render/render-str}}}))))
 
+(def middleware-loaded? (atom {}))
+
 (defn middleware
-  "Load all Ultra middleware."
+  "Ultra's middleware re-writes the project map."
+  {:added "0.1.0"}
   [project]
-  (-> project
-      add-ultra))
+  (add-ultra project))

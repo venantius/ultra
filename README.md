@@ -6,6 +6,8 @@ Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development environment.
 
+This project is currently in alpha status - most of the advertised features work, but I haven't yet implemented all of the things I want to implement.
+
 ## Installation and Configuration
 
 To install and configure Ultra, add something like the following to your `~/.lein/profiles.clj`
@@ -58,7 +60,7 @@ If you want to set the colors yourself instead of using a theme you can configur
 
 Please open an issue here before submitting pull requests; I prefer to have documentation and consensus that either of our time will be well spent by working on it. 
 
-Bug fixes are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is something of a massive exercise in ego, after all.
+Bug fixes and code cleanup are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is something of a massive exercise in ego, after all.
 
 Pull Requests for new color schemes welcome; please include screenshots in your submission.
 

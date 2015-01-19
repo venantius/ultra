@@ -4,6 +4,7 @@
 
 (defn configure-stacktraces!
   "Configure the printing of stacktraces for exceptions."
+  {:added "0.1.1"}
   []
   (alter-var-root
     #'st/print-stack-trace

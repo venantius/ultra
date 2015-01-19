@@ -8,6 +8,7 @@
 
 (defn add-middleware
   "Alter the default handler to include the provided middleware"
+  {:added "0.1.0"}
   [middleware]
   (alter-var-root
     #'clojure.tools.nrepl.server/default-handler
@@ -16,11 +17,13 @@
 
 (defn add-whidbey-middleware
   "Add Whidbey's render-values middleware."
+  {:added "0.1.0"}
   []
   (add-middleware #'render-values))
 
 (defn add-pretty-middleware
   "Add Aviso's Pretty functionality"
+  {:added "0.1.2"}
   []
   (alter-var-root
     #'main/repl-caught
@@ -31,6 +34,7 @@
 
 (defn configure-repl!
   "Was the fn name not clear enough?"
+  {:added "0.1.0"}
   []
   (add-whidbey-middleware)
   (add-pretty-middleware))

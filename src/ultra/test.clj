@@ -8,7 +8,7 @@
             [ultra.test.diff :as diff]
             [whidbey.render :as render]))
 
-(defn thing
+(defn generate-diffs
   [a more]
   (map vector
        more
@@ -27,7 +27,7 @@
                             :expected a#, :actual more#})
                 (do-report {:type :fail, :message ~msg,
                             :expected a#, :actual more#,
-                            :diffs (thing a# more#)}))
+                            :diffs (generate-diffs a# more#)}))
               result#)
             (throw (Exception. "= expects more than one argument")))))
 

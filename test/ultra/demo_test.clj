@@ -17,6 +17,9 @@
          {:alpha "Thing"
           :beta "Other thing"})))
 
+(deftest comparing-sets
+  (is (= #{1 2 3} #{1 2 4})))
+
 (deftest comparing-vecs
   (is (= [1 2 3 4 5]
          [1 2 4 5])))
@@ -24,4 +27,5 @@
 (deftest comparing-things
   (is (true? true))
   (is (false? true)))
+
 

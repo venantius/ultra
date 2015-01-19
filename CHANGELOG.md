@@ -1,3 +1,13 @@
+## 0.1.7
+ * Adding functions for Java class introspection and reflection
+ * Killing unused ultra.util ns
+ * General cleanup
+ * Bugfix for small map diffs
+ * Better diffs for list and vector comparisons
+
+## 0.1.6
+ * Bugfix release.
+
 ## 0.1.5
  * Colorscheme bugfix
  * Changed stacktrace printing to use colorscheme

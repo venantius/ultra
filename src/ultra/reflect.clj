@@ -1,12 +1,15 @@
 (ns ultra.reflect
-  "A namespace for Java object reflection. Mostly aliased to Iroh."
-  (:require [iroh.core]))
+  "A namespace for Java object reflection. Mostly aliased to hara.reflect"
+  (:require [hara.class]
+            [hara.reflect]
+            [vinyasa.inject :refer [in]]))
 
-#_(def .> iroh.core/.>)
-(def delegate iroh.core/delegate)
-#_(def .% iroh.core/.%)
-#_(def .%> iroh.core/.%>)
-#_(def >ns iroh.core/>ns)
-#_(def >var iroh.core/>var)
-#_(def .? iroh.core/.?)
-#_(def .* iroh.core/.*)
+(defn inject-java-functions
+  "Inject various functions for Java class inspection and reflection
+  into clojure.core so that they will be available in the REPL."
+  {:added "0.1.7"}
+  []
+  (in clojure.core
+      [hara.class :all]
+      [hara.reflect class-info])
+  (use 'clojure.core :reload))
