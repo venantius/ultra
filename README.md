@@ -13,7 +13,7 @@ This project is currently in alpha status - most of the advertised features work
 To install and configure Ultra, add something like the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.6"]]
+{:user {:plugins [[venantius/ultra "0.1.7"]]
         :ultra {:color-scheme :solarized_dark}}}
 ```
 
@@ -40,7 +40,7 @@ At the moment Ultra supports the following color schemes:
 If you want to set the colors yourself instead of using a theme you can configure them directly, e.g.:
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.6"]]
+{:user {:plugins [[venantius/ultra "0.1.7"]]
         :ultra {:color-scheme {:delimiter [:red]
                                :tag [:red]
                                :nil [:cyan]
