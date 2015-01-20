@@ -2,7 +2,6 @@
   (:use clojure.test)
   (:require [clojure.data :as data]
             [clojure.pprint :as pp]
-            [pjstadig.humane-test-output :as hto]
             [puget.ansi :as ansi]
             [puget.printer :as printer]
             [ultra.test.diff :as diff]

@@ -11,9 +11,7 @@
                  [im.chit/vinyasa.inject "0.3.0"]
                  [io.aviso/pretty "0.1.14"]
                  [mvxcvi/whidbey "0.4.2"]
-                 [org.clojars.brenton/google-diff-match-patch "0.1"]
-                 [pjstadig/humane-test-output "0.6.0"]
-                 [robert/hooke "1.3.0"]]
+                 [org.clojars.brenton/google-diff-match-patch "0.1"]]
   :test-selectors {:default (complement :demo)
                    :demo :demo}
   :eval-in-leiningen true)
