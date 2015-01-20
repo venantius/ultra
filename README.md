@@ -4,7 +4,7 @@
 
 Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
-Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development environment.
+Ultra is a Leiningen plugin for an absolutely kick-ass development environment.
 
 ## Installation and Configuration
 
