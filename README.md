@@ -83,7 +83,8 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
  - [greglook/whidbey](https://github.com/greglook/whidbey) - Puget nREPL middleware
  - [jaycfields/expectations](https://github.com/jaycfields/expectations) - The Expectations testing library
  - [pjstadig/humane-test-output](https://github.com/pjstadig/humane-test-output) - Diffs in tests using clojure.test
- - [zcaudate/iroh](https://github.com/zcaudate/iroh) - Java reflection made easy
+ - [zcaudate/hara](https://github.com/zcaudate/hara) - General purpose clojure utility library
+ - [zcaudate/vinyasa](https://github.com/zcaudate/vinyasa) - Give your Clojure workflow more flow
 
 ## License
 
