@@ -39,9 +39,9 @@
          (< (count a) (count e)))
     "some duplicate items in expected are not in actual."
     (and (> (count a) (count e)))
-    "expected is longer than actual."
-    (and (< (count a) (count e)))
     "actual is longer than expected."
+    (and (< (count a) (count e)))
+    "expected is longer than actual."
     :else
     "this shouldn't happen and means there is a bug in Ultra."))
 

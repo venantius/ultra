@@ -27,5 +27,3 @@
 (deftest comparing-things
   (is (true? true))
   (is (false? true)))
-
-

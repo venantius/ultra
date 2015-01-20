@@ -10,9 +10,9 @@
   (is (= (diff/list-diff [1] [1 1])
          "some duplicate items in expected are not in actual."))
   (is (= (diff/list-diff [1] [1 2])
-         "actual is longer than expected."))
+         "expected is longer than actual."))
   (is (= (diff/list-diff [1 2] [1])
-         "expected is longer than actual.")))
+         "actual is longer than expected.")))
 
 (deftest list-diff-works-with-lists
   (is (= (diff/list-diff (list 1 2) (list 2 1))
