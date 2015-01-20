@@ -26,7 +26,7 @@ To install and configure Ultra, add something like the following to your `~/.lei
 *Better stacktraces!*
 ![test stacktrace demo](https://venantius.github.io/ultra/images/colorized-test-stacktrace.png)
 
-*Java object introspection via [Iroh](https://github.com/zcaudate/iroh)!*
+*[Java object introspection](https://github.com/venantius/ultra/wiki/Java)!* 
 ![java introspection](https://venantius.github.io/ultra/images/java-interop.png)
 
 *For a more detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki)!*

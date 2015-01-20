@@ -11,5 +11,5 @@
   []
   (in clojure.core
       [hara.class :all]
-      [hara.reflect class-info])
+      [hara.reflect :all])
   (use 'clojure.core :reload))
