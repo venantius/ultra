@@ -6,8 +6,6 @@ Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin aiming to provide an absolutely kick-ass development environment.
 
-This project is currently in alpha status - most of the advertised features work, but I haven't yet implemented all of the things I want to implement.
-
 ## Installation and Configuration
 
 To install and configure Ultra, add something like the following to your `~/.lein/profiles.clj`
@@ -22,7 +20,7 @@ To install and configure Ultra, add something like the following to your `~/.lei
 *A colorized REPL!*
 ![colorized repl](https://venantius.github.io/ultra/images/colorized-repl.png)
 
-*Clearer test output!*
+*[Clearer test output](https://github.com/venantius/ultra/wiki/Tests)!*
 ![test output demo](https://venantius.github.io/ultra/images/test-output.png)
 
 *Better stacktraces!*
@@ -30,6 +28,8 @@ To install and configure Ultra, add something like the following to your `~/.lei
 
 *Java object introspection via [Iroh](https://github.com/zcaudate/iroh)!*
 ![java introspection](https://venantius.github.io/ultra/images/java-interop.png)
+
+*For a more detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki)!*
 
 ### Color schemes
 
