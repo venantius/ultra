@@ -83,7 +83,7 @@
     (print (ansi/sgr " + " :green))
     (let [b (with-out-str (cprint b))]
       (print (indent b 12))))
-  (print "\n context: ")
+  (print "\n    hint: ")
   (println (list-diff actual expected)))
 
 (defmethod prn-diffs :default
