@@ -1,3 +1,8 @@
+## 0.1.8
+ * Removes robert hooke and humane-test-output deps
+ * Adds more Java reflection tools
+ * Minor tweaks to tests
+
 ## 0.1.7
  * Adding functions for Java class introspection and reflection
  * Killing unused ultra.util ns

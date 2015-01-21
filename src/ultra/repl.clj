@@ -3,8 +3,7 @@
             [clojure.repl :as repl]
             [clojure.tools.nrepl.middleware.render-values :refer [render-values]]
             [clojure.tools.nrepl.server]
-            [io.aviso.repl :as pretty-repl]
-            [robert.hooke :refer [add-hook]]))
+            [io.aviso.repl :as pretty-repl]))
 
 (defn add-middleware
   "Alter the default handler to include the provided middleware"

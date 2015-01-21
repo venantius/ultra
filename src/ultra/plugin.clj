@@ -14,7 +14,7 @@
         (update-in [:dependencies] concat
                    `[[mvxcvi/puget "0.6.6"]
                      [mvxcvi/whidbey "0.4.2"]
-                     [venantius/ultra "0.1.7"]])
+                     [venantius/ultra "0.1.8"]])
         (update-in [:injections] concat
                    `[(require 'ultra.hardcore)
                      (ultra.hardcore/configure! ~opts)])
