@@ -1,3 +1,7 @@
+## 0.1.9
+ * Added the ability to disable Ultra components
+ * Modified namespace loading for some REPL-oriented things to avoid Whidbey's import side effects
+
 ## 0.1.8
  * Removes robert hooke and humane-test-output deps
  * Adds more Java reflection tools

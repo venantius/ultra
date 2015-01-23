@@ -1,7 +1,6 @@
 (ns ultra.repl
   (:require [clojure.main :as main]
             [clojure.repl :as repl]
-            [clojure.tools.nrepl.middleware.render-values :refer [render-values]]
             [clojure.tools.nrepl.server]
             [io.aviso.repl :as pretty-repl]))
 
@@ -13,12 +12,6 @@
     #'clojure.tools.nrepl.server/default-handler
     partial
     middleware))
-
-(defn add-whidbey-middleware
-  "Add Whidbey's render-values middleware."
-  {:added "0.1.0"}
-  []
-  (add-middleware #'render-values))
 
 (defn add-pretty-middleware
   "Add Aviso's Pretty functionality"
@@ -34,6 +27,9 @@
 (defn configure-repl!
   "Was the fn name not clear enough?"
   {:added "0.1.0"}
-  []
-  (add-whidbey-middleware)
-  (add-pretty-middleware))
+  [repl stacktraces]
+  (when (not (false? repl))
+    (require 'ultra.repl.whidbey)
+    (eval '(ultra.repl.whidbey/add-whidbey-middleware)))
+  (when (not (false? stacktraces))
+    (add-pretty-middleware)))

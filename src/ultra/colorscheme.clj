@@ -6,8 +6,8 @@
             [whidbey.render]))
 
 (defn valid-colorscheme?
- [k]
- (#{:solarized_dark
+  [k]
+  (#{:solarized_dark
     :default} k))
 
 (defn valid-ansi-color?

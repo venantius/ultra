@@ -6,12 +6,14 @@ Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin for an absolutely kick-ass development environment.
 
-## Installation and Configuration
+An extensive diatribe on the origin and justification for Ultra can be found [here](http://blog.venanti.us/ultra).
+
+## Installation
 
 To install and configure Ultra, add something like the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.8"]]
+{:user {:plugins [[venantius/ultra "0.1.9"]]
         :ultra {:color-scheme :solarized_dark}}}
 ```
 
@@ -31,6 +33,23 @@ To install and configure Ultra, add something like the following to your `~/.lei
 
 *For a more detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki)!*
 
+## Configuration
+
+All of the above features are enabled by default, but can be turned off by setting a `false` flag in your profile. If you wanted Ultra to essentially no-op, your profile would look like this: 
+
+```clojure
+{:user {:plugins [[venantius/ultra "0.1.9"]]
+        :ultra {:repl         false
+                :stacktraces  false
+                :tests        false
+                :java         false
+                :quiet-lint   false}}}
+```
+
+### `:quiet-lint`?
+
+This is a bit of an odd flag, but by way of explanation: the Java utility functions intern `protocol?` and `interface?` functions in `clojure.core`, which then collide (and emit warnings for) functions of the same name that exist in `eastwood.util`. By default, Ultra suppresses those warnings while it `require`s that namespace.
+
 ### Color schemes
 
 At the moment Ultra supports the following color schemes:
@@ -40,7 +59,7 @@ At the moment Ultra supports the following color schemes:
 If you want to set the colors yourself instead of using a theme you can configure them directly, e.g.:
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.1.8"]]
+{:user {:plugins [[venantius/ultra "0.1.9"]]
         :ultra {:color-scheme {:delimiter [:red]
                                :tag [:red]
                                :nil [:cyan]
@@ -72,6 +91,10 @@ In short, my `:user` profile was starting to become bloated. It was difficult to
 starting to look a little unwieldy. 
 
 At some point I realized I was up to my neck in alligators and that it was time to push things into a standalone repository.
+
+## What's your problem with emacs?
+
+I don't have one - I just don't use it. That having been said, most of Ultra's features already exist in one form or another in emacs, and emacs' middleware tends to override Ultra's.
 
 ## Special Thanks
 

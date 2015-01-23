@@ -1,4 +1,4 @@
-(defproject venantius/ultra "0.1.8"
+(defproject venantius/ultra "0.1.9"
   :description "Ultra: A Leiningen plugin for a superior development environment"
   :url "http://github.com/venantius/ultra"
   :license {:name "Eclipse Public License"
@@ -10,6 +10,7 @@
                  [im.chit/hara.reflect "2.1.8"]
                  [im.chit/vinyasa.inject "0.3.0"]
                  [io.aviso/pretty "0.1.14"]
+                 [jonase/eastwood "0.2.1"]
                  [mvxcvi/whidbey "0.4.2"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]]
   :test-selectors {:default (complement :demo)
