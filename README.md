@@ -18,6 +18,7 @@ To install and configure Ultra, add something like the following to your `~/.lei
 ```
 
 ## Features
+For a detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki). Here's the highlight reel:
 
 *A colorized REPL!*
 ![colorized repl](https://venantius.github.io/ultra/images/colorized-repl.png)
@@ -98,7 +99,7 @@ I don't have one - I just don't use it. That having been said, most of Ultra's f
 
 ## Special Thanks
 
-Ultra wraps, calls, or draws inspiration from the following libraries, and their owners and authors deserve credit for doing most of the hard work:
+Ultra wraps, calls, or draws inspiration from the following libraries, and their owners and authors deserve credit for doing most of the hard work.  
 
  - [AvisoNovate/pretty](https://github.com/AvisoNovate/pretty) - Better exceptions
  - [brentonashworth/lein-difftest](https://github.com/brentonashworth/lein-difftest) - Lein-difftest - test diffs using difform
@@ -111,6 +112,6 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
 
 ## License
 
-Copyright © 2015 W. David Jarvis for anything that someone above didn't write first.
+In some cases, I've borrowed code snippets from libraries above and re-written them. Where that is the case, the Copyright of the original author[s] remains in effect. Any modifications to their code, as well as all original content, is Copyright © 2015 W. David Jarvis.
 
 Distributed under the Eclipse Public License 1.0, the same as Clojure.
