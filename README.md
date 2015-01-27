@@ -17,6 +17,8 @@ To install and configure Ultra, add something like the following to your `~/.lei
         :ultra {:color-scheme :solarized_dark}}}
 ```
 
+Note that colorized nREPL output requires Leiningen version 2.4.2 or higher.
+
 ## Features
 For a detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki). Here's the highlight reel:
 
