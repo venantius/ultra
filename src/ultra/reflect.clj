@@ -12,4 +12,4 @@
   (in clojure.core
       [hara.class :all]
       [hara.reflect :all])
-  (use 'clojure.core :reload))
+  (require '[clojure.core :refer :all]))

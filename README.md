@@ -32,8 +32,6 @@ For a detailed list of features, check out the [wiki](https://github.com/venanti
 *[Java object introspection](https://github.com/venantius/ultra/wiki/Java)!* 
 ![java introspection](https://venantius.github.io/ultra/images/java-interop.png)
 
-*For a more detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki)!*
-
 ## Configuration
 
 All of the above features are enabled by default, but can be turned off by setting a `false` flag in your profile. If you wanted Ultra to essentially no-op, your profile would look like this: 
@@ -49,7 +47,7 @@ All of the above features are enabled by default, but can be turned off by setti
 
 ### `:quiet-lint`?
 
-This is a bit of an odd flag, but by way of explanation: the Java utility functions intern `protocol?` and `interface?` functions in `clojure.core`, which then collide (and emit warnings for) functions of the same name that exist in `eastwood.util`. By default, Ultra suppresses those warnings while it `require`s that namespace.
+This is a bit of an odd flag, but by way of explanation: the Java utility functions intern, amongst others, `protocol?` and `interface?` functions in `clojure.core`, which then collide (and emit warnings for) functions of the same name that exist in `eastwood.util`. By default, Ultra suppresses those warnings while it `require`s the Eastwood ns.
 
 ### Color schemes
 
@@ -88,14 +86,9 @@ Pull Requests for new color schemes welcome; please include screenshots in your 
 
 ...or, why didn't you just put all of this stuff in your `~/.lein/profiles.clj`?
 
-In short, my `:user` profile was starting to become bloated. It was difficult to tell whether plugins were interfering with each other, and my `:injections` key in particular was 
-starting to look a little unwieldy. 
+In short, my `:user` profile was starting to become bloated. It was difficult to tell whether plugins were interfering with each other, and my `:injections` key in particular was starting to look a little unwieldy. 
 
 At some point I realized I was up to my neck in alligators and that it was time to push things into a standalone repository.
-
-## What's your problem with emacs?
-
-I don't have one - I just don't use it. That having been said, most of Ultra's features already exist in one form or another in emacs, and emacs' middleware tends to override Ultra's.
 
 ## Special Thanks
 
