@@ -6,7 +6,7 @@ Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin for an absolutely kick-ass development environment.
 
-An extensive diatribe on the origin and justification for Ultra can be found [here](http://blog.venanti.us/ultra).
+I've written a blog post describing Ultra in greater depth [here](http://blog.venanti.us/ultra).
 
 ## Installation
 
