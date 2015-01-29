@@ -42,6 +42,8 @@
     "actual is longer than expected."
     (< (count a) (count e))
     "expected is longer than actual."
+    (= (count a) (count e))
+    "expected and actual contain different items."
     :else
     "this shouldn't happen and means there is a bug in Ultra."))
 
