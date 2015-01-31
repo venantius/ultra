@@ -18,7 +18,7 @@
     (repl/configure-repl! repl stacktraces))
   (if (not (false? stacktraces))
     (stacktrace/configure-stacktraces!))
-  (if (not (false? tests))
+  #_(if (not (false? tests))
     (test/activate!))
   (if (not (false? quiet-lint))
     (ns/load!))

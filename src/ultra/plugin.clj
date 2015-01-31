@@ -23,8 +23,8 @@
                                  (ultra.hardcore/configure! ~opts)]))]
     (if (not (false? (:repl opts)))
       (update-in project [:repl-options] merge
-                 `{:nrepl-middleware [clojure.tools.nrepl.middleware.render-values/render-values]
-                   :nrepl-context {:interactive-eval {:renderer whidbey.render/render-str}}})
+                 {:nrepl-middleware `[clojure.tools.nrepl.middleware.render-values/render-values]
+                  :nrepl-context {:interactive-eval `{:renderer whidbey.render/render-str}}})
       project)))
 
 (def middleware-loaded? (atom {}))

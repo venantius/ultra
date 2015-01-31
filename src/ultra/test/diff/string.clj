@@ -11,13 +11,11 @@
 ;; W. David Jarvis
 
 (ns ultra.test.diff.string
-  (:import name.fraser.neil.plaintext.diff_match_patch$Operation
-           name.fraser.neil.plaintext.diff_match_patch)
   (:require [clojure.string :as s]
-            [clojure.pprint :as pprint]
             [puget.ansi :as ansi]
             [ultra.printer :refer [cprint]])
-  (:use clojure.walk))
+  (:import name.fraser.neil.plaintext.diff_match_patch$Operation
+           name.fraser.neil.plaintext.diff_match_patch))
 
 (def diff-markers
    {diff_match_patch$Operation/EQUAL " "
