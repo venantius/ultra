@@ -1,3 +1,9 @@
+## 0.2.0
+ * Removes `quiet-lint` and resolves the Hara variable collision problem by taking advantage of Lein's :repl-options :init key instead of using Vinyasa's injections.
+ * Removes Vinyasa dependency.
+ * Moving test activation from a defonce, which seemed to screw up Kibit.
+ * General cleanup and refactoring.
+
 ## 0.1.9
  * Added the ability to disable Ultra components
  * Modified namespace loading for some REPL-oriented things to avoid Whidbey's import side effects

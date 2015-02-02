@@ -1,15 +1,13 @@
 (ns ultra.reflect
   "A namespace for Java object reflection. Mostly aliased to hara.reflect"
   (:require [hara.class]
-            [hara.reflect]
-            [vinyasa.inject :refer [in]]))
+            [hara.reflect]))
 
-(defn inject-java-functions
-  "Inject various functions for Java class inspection and reflection
-  into clojure.core so that they will be available in the REPL."
-  {:added "0.1.7"}
+(defn require-java-functions
+  "Require various functions for Java class inspection and reflection.
+
+  Called by Leiningen's repl-options init."
+  {:added "0.2.0"}
   []
-  (in clojure.core
-      [hara.class :all]
-      [hara.reflect :all])
-  (require '[clojure.core :refer :all]))
+  (require '[hara.class :refer :all])
+  (require '[hara.reflect :refer :all]))
