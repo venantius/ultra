@@ -6,11 +6,9 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/tools.nrepl "0.2.7"]
 
-                 [im.chit/hara.class "2.1.8"]
-                 [im.chit/hara.reflect "2.1.8"]
                  [io.aviso/pretty "0.1.14"]
-                 [jonase/eastwood "0.2.1"]
                  [mvxcvi/whidbey "0.4.2"]
+                 [robert/hooke "1.3.0"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]]
   :test-selectors {:default (complement :demo)
                    :demo :demo}

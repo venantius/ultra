@@ -1,5 +1,5 @@
 ## 0.2.0
- * Removes `quiet-lint` and resolves the Hara variable collision problem by taking advantage of Lein's :repl-options :init key instead of using Vinyasa's injections.
+ * Moves Java function injection to be a hook sitting on clojure.tools.nrepl.server/start-server, which is a total hack but it seems to actually work, unlike literally everything else I've tried. 
  * Removes Vinyasa dependency.
  * Moving test activation from a defonce, which seemed to screw up Kibit.
  * General cleanup and refactoring.
