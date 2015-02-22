@@ -81,7 +81,7 @@ If you want to set the colors yourself instead of using a theme you can configur
 
 ## Contributing
 
-Please open an issue here before submitting pull requests; I prefer to have documentation and consensus that either of our time will be well spent by working on it. 
+Please open an issue here before submitting pull requests; I prefer to have documentation and consensus that either of our time will be well spent by working on it. When opening an issue -- particularly for bugs -- please refer to [CONTRIBUTING.md](https://github.com/venantius/ultra/blob/master/CONTRIBUTING.md)
 
 Bug fixes and code cleanup are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is something of a massive exercise in ego, after all.
 
