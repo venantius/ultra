@@ -2,14 +2,34 @@
   (:require [leiningen.core.project :as project]
             [whidbey.plugin :as plugin]))
 
+
+;; clojure.tools.nrepl.middleware.render-values/render-values
+(defn prepend-repl-middleware
+  "Add our nREPL middleware to the front of the nREPL middleware vector.
+
+  This is to avoid a sneaky bug with Whidbey and CIDER that's caused by
+  load order."
+  {:added "0.2.1"}
+  [project]
+  (let [current-middleware (or (-> project
+                                 :repl-options
+                                 :nrepl-middleware) [])
+        new-middleware (reduce conj
+                               [`clojure.tools.nrepl.middleware.render-values/render-values]
+                               current-middleware)]
+    (assoc-in project [:repl-options :nrepl-middleware] new-middleware)))
+
 (defn add-repl-middleware
   "Check to see if we need to add nREPL middleware, and if so, add it."
   {:added "0.2.0"}
   [project {:keys [repl] :as opts}]
   (if (not (false? repl))
-   (update-in project [:repl-options] merge
-              {:nrepl-middleware `[clojure.tools.nrepl.middleware.render-values/render-values]
-               :nrepl-context {:interactive-eval `{:renderer whidbey.render/render-str}}})
+    (-> project
+        (update-in [:repl-options] merge
+                   {:nrepl-context
+                    {:interactive-eval
+                     `{:renderer whidbey.render/render-str}}})
+        prepend-repl-middleware)
     project))
 
 (defn add-ultra
