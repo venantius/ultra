@@ -12,8 +12,8 @@
   {:added "0.2.1"}
   [project]
   (let [current-middleware (or (-> project
-                                 :repl-options
-                                 :nrepl-middleware) [])
+                                   :repl-options
+                                   :nrepl-middleware) [])
         new-middleware (reduce conj
                                [`clojure.tools.nrepl.middleware.render-values/render-values]
                                current-middleware)]
@@ -44,7 +44,7 @@
                     (update-in [:dependencies] concat
                                `[[mvxcvi/puget "0.6.6"]
                                  [mvxcvi/whidbey "0.4.2"]
-                                 [venantius/ultra "0.2.0"]
+                                 [venantius/ultra "0.2.2"]
                                  [im.chit/hara.class "2.1.8"]
                                  [im.chit/hara.reflect "2.1.8"]])
                     (update-in [:injections] concat

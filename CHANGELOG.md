@@ -1,3 +1,6 @@
+## 0.2.2
+ * Avoids initialization of unused features.
+
 ## 0.2.1
  * Adds ultra.repl/pprint-source, a pretty-printer for trusted source code.
  * Modifies the loading of the nREPL middleware to play nicely with CIDER.

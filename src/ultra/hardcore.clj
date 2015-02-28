@@ -1,11 +1,7 @@
 (ns ultra.hardcore
   "See what I did there?"
   (:require [clojure.tools.nrepl.server]
-            [robert.hooke :refer [add-hook]]
-            [ultra.colorscheme :as colorscheme]
-            [ultra.repl :as repl]
-            [ultra.stacktrace :as stacktrace]
-            [ultra.test :as test]))
+            [robert.hooke :refer [add-hook]]))
 
 (def configured? (atom {}))
 
@@ -27,17 +23,48 @@
   []
   (add-hook #'clojure.tools.nrepl.server/start-server #'require-java-functions))
 
+(defmacro configure-repl!
+  "Dynamically import ultra's repl namespace and configure the REPL."
+  {:added "0.2.2"}
+  [repl stacktraces]
+  `(do ~(require 'ultra.repl)
+       (ultra.repl/configure-repl! ~repl ~stacktraces)))
+
+(defmacro configure-stacktraces!
+  "Dynamically import ultra's stacktrace namespace and configure them."
+  {:added "0.2.2"}
+  []
+  `(do ~(require 'ultra.stacktrace)
+       (ultra.stacktrace/configure-stacktraces!)))
+
+(defmacro configure-tests!
+  "Dyanmically import ultra's test namespace and configure them."
+  {:added "0.2.2"}
+  []
+  `(do ~(require 'ultra.test)
+       (ultra.test/activate!)))
+
+(defmacro set-colorscheme!
+  "Dynamically import ultra's colorscheme namespace and configures it."
+  {:added "0.2.2"}
+  [opts]
+  `(do ~(require 'ultra.colorscheme)
+       (ultra.colorscheme/set-colorscheme ~opts)))
+
 (defn run-configuration
   "Initialize and configure Ultra's various components."
   {:added "0.1.0"}
   [{:keys [java repl stacktraces tests] :as opts}]
-  (colorscheme/set-colorscheme opts)
+  (when (and (not (false? repl))
+             (not (false? stacktraces))
+             (not (false? tests)))
+    (eval `(set-colorscheme! ~opts)))
   (if (not (false? repl))
-    (repl/configure-repl! repl stacktraces))
+    (eval `(configure-repl! ~repl ~stacktraces)))
   (if (not (false? stacktraces))
-    (stacktrace/configure-stacktraces!))
+    (eval `(configure-stacktraces!)))
   (if (not (false? tests))
-    (test/activate!))
+    (eval `(configure-tests!)))
   (if (not (false? java))
     (java-hooks)))
 
