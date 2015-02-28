@@ -41,8 +41,7 @@
   "Dyanmically import ultra's test namespace and configure them."
   {:added "0.2.2"}
   []
-  `(do ~(require 'ultra.test)
-       (ultra.test/activate!)))
+  `(do ~(require 'ultra.test)))
 
 (defmacro set-colorscheme!
   "Dynamically import ultra's colorscheme namespace and configures it."
@@ -59,13 +58,13 @@
              (not (false? stacktraces))
              (not (false? tests)))
     (eval `(set-colorscheme! ~opts)))
-  (if (not (false? repl))
+  (when (not (false? repl))
     (eval `(configure-repl! ~repl ~stacktraces)))
-  (if (not (false? stacktraces))
+  (when (not (false? stacktraces))
     (eval `(configure-stacktraces!)))
-  (if (not (false? tests))
+  (when (not (false? tests))
     (eval `(configure-tests!)))
-  (if (not (false? java))
+  (when (not (false? java))
     (java-hooks)))
 
 (defn configure!
