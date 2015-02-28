@@ -1,5 +1,6 @@
 ## 0.2.2
  * Avoids initialization of unused features.
+ * Avoids configuration when doing tasks other than `lein test` or `lein repl`.
 
 ## 0.2.1
  * Adds ultra.repl/pprint-source, a pretty-printer for trusted source code.
