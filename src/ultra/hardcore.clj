@@ -25,27 +25,27 @@
 
 (defmacro configure-repl!
   "Dynamically import ultra's repl namespace and configure the REPL."
-  {:added "0.2.2"}
+  {:added "0.3.0"}
   [repl stacktraces]
   `(do ~(require 'ultra.repl)
        (ultra.repl/configure-repl! ~repl ~stacktraces)))
 
 (defmacro configure-stacktraces!
   "Dynamically import ultra's stacktrace namespace and configure them."
-  {:added "0.2.2"}
+  {:added "0.3.0"}
   []
   `(do ~(require 'ultra.stacktrace)
        (ultra.stacktrace/configure-stacktraces!)))
 
 (defmacro configure-tests!
   "Dyanmically import ultra's test namespace and configure them."
-  {:added "0.2.2"}
+  {:added "0.3.0"}
   []
   `(do ~(require 'ultra.test)))
 
 (defmacro set-colorscheme!
   "Dynamically import ultra's colorscheme namespace and configures it."
-  {:added "0.2.2"}
+  {:added "0.3.0"}
   [opts]
   `(do ~(require 'ultra.colorscheme)
        (ultra.colorscheme/set-colorscheme ~opts)))

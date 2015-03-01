@@ -12,7 +12,7 @@
 
 (ns ultra.test.diff.string
   (:require [clojure.string :as s]
-            [puget.ansi :as ansi]
+            [puget.color.ansi :as ansi]
             [ultra.printer :refer [cprint]])
   (:import name.fraser.neil.plaintext.diff_match_patch$Operation
            name.fraser.neil.plaintext.diff_match_patch))

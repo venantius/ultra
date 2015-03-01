@@ -1,6 +1,6 @@
 (ns ultra.test.diff
   (:require [clojure.string :as s]
-            [puget.ansi :as ansi]
+            [puget.color.ansi :as ansi]
             [ultra.printer :refer [cprint]]
             [ultra.test.diff.string :as str-diff]))
 

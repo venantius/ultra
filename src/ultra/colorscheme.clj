@@ -2,7 +2,7 @@
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
             [io.aviso.exception]
-            [puget.ansi]
+            [puget.color.ansi :as ansi]
             [whidbey.render]))
 
 (defn valid-colorscheme?
@@ -29,7 +29,7 @@
   [v]
   (if-let [k (first (filter valid-ansi-color? v))]
     (eval (symbol "io.aviso.ansi" (str (name k) "-font")))
-    (puget.ansi/escape :none)))
+    (ansi/escape :none)))
 
 (defn set-pretty-colors
   "Set the color palette for pretty (which handles exceptions)."
