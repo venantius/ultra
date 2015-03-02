@@ -50,9 +50,12 @@
       (update-in [:dependencies] concat
                  `[[mvxcvi/puget "0.7.1"]
                    [mvxcvi/whidbey "0.5.0"]
-                   [venantius/ultra "0.3.0"]
+                   [venantius/ultra "0.3.1"]
                    [im.chit/hara.class "2.1.8"]
                    [im.chit/hara.reflect "2.1.8"]])
+      (update-in [:injections] concat `[(require 'ultra.hardcore) 
+                                        (ultra.hardcore/add-test-hooks! ~opts)])
+      (assoc :monkeypatch-clojure-test false)
       (add-repl-middleware opts)
       (inject-repl-initialization opts)))
 
@@ -65,8 +68,4 @@
                         :map-delimiter ""
                         :print-fallback :print
                         :sort-keys true))]
-    (add-hook #'leiningen.test/test
-              (fn [f & args]
-                (ultra.hardcore/configure! opts)
-                (apply f args)))
     (add-ultra project opts)))

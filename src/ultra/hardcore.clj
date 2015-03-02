@@ -73,3 +73,12 @@
   [opts]
   (if (empty? @configured?)
     (swap! configured? assoc :config (run-configuration opts))))
+
+(defn add-test-hooks!
+  "Add hooks to configure tests"
+  {:added "0.3.1"}
+  [opts]
+  (add-hook #'clojure.test/run-tests
+            (fn [f & args]
+              (configure! opts)
+              (apply f args))))
