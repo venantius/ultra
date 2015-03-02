@@ -7,8 +7,6 @@
             [ultra.test.diff :as diff]
             [whidbey.render :as render]))
 
-(println "FUCK YOU TOO")
-
 (defn generate-diffs
   [a more]
   (map vector
