@@ -4,3 +4,8 @@
 
 (deftest class-test-1
   (is (= "1" 2)))
+
+(deftest class-test-multiline
+  (is (= nil
+         {:alphabet-soup "A delicious treat for all ages"
+          :gummy-dinosaurs "Probably only for children"})))

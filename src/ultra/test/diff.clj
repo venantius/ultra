@@ -70,8 +70,16 @@
   [a b actual expected]
   (print-expected actual expected)
   (let [puget-str (fn [x] (s/trim-newline (with-out-str (cprint x))))]
-    (println "\nexpected:" (puget-str b) "to be an instance of" (class a))
-    (println "     was:" (puget-str b) "is an instance of" (class b))))
+    (print "\nexpected: ")
+    (let [a (with-out-str (println (puget-str b) 
+                                   "to be an instance of" 
+                                   (class a)))
+          b (with-out-str (println (puget-str b)
+                                   "is an instance of"
+                                   (class b)))]
+      (println (clojure.string/trim (indent a 10)))
+      (print "     was: ")
+      (print (indent b 10)))))
 
 (defmethod prn-diffs ::diff-vecs
   [a b actual expected]

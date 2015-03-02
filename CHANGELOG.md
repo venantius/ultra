@@ -2,6 +2,7 @@
  * Avoids initialization of unused features.
  * Avoids configuration when doing tasks other than `lein test` or `lein repl`.
  * Updates dependencies on Puget and Whidbey to pick up new `:print-fallback` feature, honoring custom `print-methods`
+ * Fixes a bug with multi-line test diffs when comparing objects of different classes.
 
 ## 0.2.1
  * Adds ultra.repl/pprint-source, a pretty-printer for trusted source code.
