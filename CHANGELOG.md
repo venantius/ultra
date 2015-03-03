@@ -1,3 +1,13 @@
+## 0.3.3
+ * Add a bugfix for a colorscheme configuration issue that was introduced in 0.3.0
+ * Add a custom escape hatch for `datomic.db.Db` objects that can't be printed at the moment.
+
+## 0.3.2
+ * Remove an embarrassing println statement
+
+## 0.3.1
+ * Fix test initialization to be an injection that triggers a hook. 
+
 ## 0.3.0
  * Avoids initialization of unused features.
  * Avoids configuration when doing tasks other than `lein test` or `lein repl`.

@@ -50,7 +50,7 @@
       (update-in [:dependencies] concat
                  `[[mvxcvi/puget "0.7.1"]
                    [mvxcvi/whidbey "0.5.0"]
-                   [venantius/ultra "0.3.2"]
+                   [venantius/ultra "0.3.3"]
                    [im.chit/hara.class "2.1.8"]
                    [im.chit/hara.reflect "2.1.8"]])
       (update-in [:injections] concat `[(require 'ultra.hardcore) 
