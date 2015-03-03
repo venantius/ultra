@@ -3,7 +3,8 @@
             [clojure.repl :as repl]
             [clojure.tools.nrepl.server]
             [io.aviso.repl :as pretty-repl]
-            [ultra.printer :refer [cprint]]))
+            [ultra.printer :refer [cprint]]
+            [ultra.printer.escape-hatch]))
 
 (defmacro pprint-source
   "Prints the source code for the given symbol, if it can find it.

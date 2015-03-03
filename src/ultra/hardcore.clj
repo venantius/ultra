@@ -54,9 +54,9 @@
   "Initialize and configure Ultra's various components."
   {:added "0.1.0"}
   [{:keys [java repl stacktraces tests] :as opts}]
-  (when (and (not (false? repl))
-             (not (false? stacktraces))
-             (not (false? tests)))
+  (when (or (not (false? repl))
+            (not (false? stacktraces))
+            (not (false? tests)))
     (eval `(set-colorscheme! ~opts)))
   (when (not (false? repl))
     (eval `(configure-repl! ~repl ~stacktraces)))
