@@ -4,8 +4,14 @@
   (:require [puget.data :as data]
             [puget.printer :refer [format-doc]]))
 
-(defmethod format-doc datomic.db.Db
-  [value]
-  ((get-method format-doc :default) value))
+(def escaped-classes
+  #{"class datomic.db.Db"})
 
-(prefer-method format-doc datomic.db.Db clojure.lang.IPersistentMap)
+(intern
+  'puget.printer
+  'formatter-dispatch
+  (fn [value]
+    (cond 
+      (satisfies? data/ExtendedNotation value) ::tagged-literal
+      (escaped-classes (str (class value))) :default
+      :else (type value))))
