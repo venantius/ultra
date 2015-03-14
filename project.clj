@@ -7,7 +7,6 @@
                  [org.clojure/tools.nrepl "0.2.7"]
 
                  [io.aviso/pretty "0.1.14"]
-                 [manifold "0.1.0-beta11"]
                  [mvxcvi/whidbey "0.5.0"]
                  [mvxcvi/puget "0.7.1"]
                  [robert/hooke "1.3.0"]
