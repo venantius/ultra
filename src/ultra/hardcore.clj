@@ -1,7 +1,9 @@
 (ns ultra.hardcore
   "See what I did there?"
   (:require [clojure.tools.nrepl.server]
-            [robert.hooke :refer [add-hook]]))
+            [robert.hooke :refer [add-hook]]
+            [ultra.test]
+            ))
 
 (def configured? (atom {}))
 
@@ -41,7 +43,8 @@
   "Dyanmically import ultra's test namespace and configure them."
   {:added "0.3.0"}
   []
-  `(do ~(require 'ultra.test)))
+  `(do ~(require 'ultra.test)
+       (ultra.test/activate!)))
 
 (defmacro set-colorscheme!
   "Dynamically import ultra's colorscheme namespace and configures it."
@@ -78,7 +81,7 @@
   "Add hooks to configure tests"
   {:added "0.3.1"}
   [opts]
-  (add-hook #'clojure.test/run-tests
+  (add-hook #'clojure.test/try-expr
             (fn [f & args]
               (configure! opts)
               (apply f args))))
