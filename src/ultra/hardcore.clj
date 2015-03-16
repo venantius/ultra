@@ -1,9 +1,7 @@
 (ns ultra.hardcore
   "See what I did there?"
   (:require [clojure.tools.nrepl.server]
-            [robert.hooke :refer [add-hook]]
-            [ultra.test]
-            ))
+            [robert.hooke :refer [add-hook]]))
 
 (def configured? (atom {}))
 
