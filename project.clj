@@ -7,8 +7,8 @@
                  [org.clojure/tools.nrepl "0.2.7"]
 
                  [io.aviso/pretty "0.1.14"]
-                 [mvxcvi/whidbey "0.5.0"]
-                 [mvxcvi/puget "0.7.1"]
+                 [mvxcvi/whidbey "1.0.0"]
+                 [mvxcvi/puget "0.8.1"]
                  [robert/hooke "1.3.0"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]]
   :test-selectors {:default (complement :demo)
