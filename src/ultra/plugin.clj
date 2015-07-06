@@ -12,20 +12,23 @@
   [project {:keys [repl] :as opts}]
   (if (not (false? repl))
     (-> project
-        (plugin/set-interactive-eval-renderer 
-          'whidbey.render/render-str)
-        (plugin/add-nrepl-middleware 
-          `clojure.tools.nrepl.middleware.render-values/render-values))
+        (plugin/set-interactive-eval-renderer
+         'whidbey.render/render-str)
+        (plugin/add-nrepl-middleware
+         `clojure.tools.nrepl.middleware.render-values/render-values))
     project))
 
 (defn inject-repl-initialization
   "Move most configuration into REPL initialization."
   {:added "0.3.0"}
   [project opts]
-  (plugin/add-repl-init
-    project
-  `(do (require 'ultra.hardcore)
-       (ultra.hardcore/configure! ~opts))))
+  (let [whidbey-opts (:whidbey project)]
+    (plugin/add-repl-init
+     project
+     `(do (require 'ultra.hardcore)
+          (require 'whidbey.repl)
+          (whidbey.repl/init! ~whidbey-opts)
+          (ultra.hardcore/configure! ~opts)))))
 
 (defn add-ultra
   "Add ultra as a project dependency and inject configuration."
@@ -34,11 +37,11 @@
   (-> project
       (plugin/add-dependencies
        (plugin/plugin-dependency project 'venantius/ultra)
-       ['mvxcvi/puget "0.7.1"]       
-       ['mvxcvi/whidbey "0.5.0"]
+       ['mvxcvi/puget "0.8.1"]
+       ['mvxcvi/whidbey "1.0.0"]
        ['im.chit/hara.class "2.1.8"]
        ['im.chit/hara.reflect "2.1.8"])
-      (update-in [:injections] concat `[(require 'ultra.hardcore) 
+      (update-in [:injections] concat `[(require 'ultra.hardcore)
                                         (ultra.hardcore/add-test-hooks! ~opts)])
       (assoc :monkeypatch-clojure-test false)
       (add-repl-middleware opts)
