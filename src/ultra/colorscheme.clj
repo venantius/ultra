@@ -60,7 +60,7 @@
                      color-scheme
                      (load-colorscheme color-scheme))]
     (alter-var-root
-      #'whidbey.render/puget-options
+      #'whidbey.render/options
       merge
       (assoc opts :color-scheme color-scheme))
     (set-pretty-colors color-scheme)))
