@@ -1,4 +1,6 @@
 # Ultra
+
+[![Join the chat at https://gitter.im/venantius/ultra](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/venantius/ultra?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/venantius/ultra.svg?branch=master)](https://travis-ci.org/venantius/ultra)
 [![Dependency Status](https://www.versioneye.com/user/projects/54b5674f050646ca5c000068/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54b5674f050646ca5c000068)
 
