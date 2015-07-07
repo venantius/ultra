@@ -1,3 +1,6 @@
+## 0.3.4
+ * Updated dependencies. Should set the stage for ClojureScript support.
+
 ## 0.3.3
  * Add a bugfix for a colorscheme configuration issue that was introduced in 0.3.0
  * Bugfix for test initialization and configuration when running `lein test`
