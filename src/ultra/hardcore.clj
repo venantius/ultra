@@ -81,5 +81,5 @@
   [opts]
   (add-hook #'clojure.test/try-expr
             (fn [f & args]
-              (configure! opts)
+              (configure! (assoc opts :repl false))
               (apply f args))))
