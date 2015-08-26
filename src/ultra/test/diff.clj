@@ -54,10 +54,10 @@
   {:added "0.1.3"}
   (fn [a b actual expected]
     (cond
-      (and (string? actual) (string? expected)) ::diff-strs
-      (and (vector? actual) (vector? expected)) ::diff-vecs
-      (and (list? actual) (list? expected)) ::diff-vecs
-      (not= (class actual) (class expected)) ::wrong-class
+      (and (string? a) (string? b)) ::diff-strs
+      (and (vector? a) (vector? b)) ::diff-vecs
+      (and (list? a) (list? b)) ::diff-vecs
+      (not= (class a) (class b)) ::wrong-class
       :default [a b actual expected])))
 
 (defmethod prn-diffs ::diff-strs
