@@ -13,4 +13,5 @@
                  [org.clojars.brenton/google-diff-match-patch "0.1"]]
   :test-selectors {:default (complement :demo)
                    :demo :demo}
+  :min-lein-version "2.5.2"
   :eval-in-leiningen true)
