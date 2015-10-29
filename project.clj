@@ -7,10 +7,11 @@
                  [org.clojure/tools.nrepl "0.2.10"]
 
                  [io.aviso/pretty "0.1.18"]
-                 [mvxcvi/whidbey "1.0.0"]
-                 [mvxcvi/puget "0.8.1"]
+                 [mvxcvi/whidbey "1.1.1"]
+                 [mvxcvi/puget "0.9.2"]
                  [robert/hooke "1.3.0"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]]
   :test-selectors {:default (complement :demo)
                    :demo :demo}
+  :min-lein-version "2.5.2"
   :eval-in-leiningen true)

@@ -5,7 +5,7 @@
             [puget.color.ansi :as ansi]
             [puget.printer :as printer]
             [ultra.test.diff :as diff]
-            [whidbey.render :as render]))
+            [whidbey.repl :as repl]))
 
 
 (defn generate-diffs
