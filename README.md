@@ -21,9 +21,8 @@ To install and configure Ultra, add something like the following to your `~/.lei
 
 ### Requirements
 
-Colorized nREPL output requires Leiningen version 2.4.2 or higher.
-
-The plugin at large needs JDK 7+.
+Leiningen version 2.5.2+
+JDK 7+
 
 #### ClojureScript Support
 
