@@ -25,7 +25,7 @@
 
   Note: I'm happy with how this works, but not the code itself. Odds are good
   that I'll try to refactor this in the future."
-  {:added "0.4.0"}
+  {:added "0.3.5"}
   []
   (binding [*ns* (the-ns 'clojure.repl)]
     (require '[glow.core :as glow])
