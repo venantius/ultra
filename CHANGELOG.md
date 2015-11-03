@@ -1,5 +1,10 @@
+## 0.3.5
+ * Fixed the diff-dispatching interface to correctly diff types
+ * Changed the behavior of `source` at the REPL to be colorized.
+ * Updated dependencies.
+
 ## 0.3.4
- * Updated dependencies. Should set the stage for ClojureScript support.
+ * Updated dependencies.
 
 ## 0.3.3
  * Add a bugfix for a colorscheme configuration issue that was introduced in 0.3.0
