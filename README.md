@@ -15,7 +15,7 @@ I've written a blog post describing Ultra in greater depth [here](http://blog.ve
 To install and configure Ultra, add something like the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.3.4"]]
+{:user {:plugins [[venantius/ultra "0.3.5"]]
         :ultra {:color-scheme :solarized_dark}}}
 ```
 
@@ -26,7 +26,7 @@ JDK 7+
 
 #### ClojureScript Support
 
-At the moment, Ultra doesn't have ClojureScript support at the REPL. See https://github.com/brandonbloom/fipp/issues/7.
+At the moment, Ultra doesn't have ClojureScript support at the REPL. The relevant upstream issue to track work on this is https://github.com/greglook/puget/issues/27; from there, Whidbey will need to be updated, and then Ultra will be able to consume the changes.
 
 ## Features
 For a detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki). Here's the highlight reel:
@@ -48,7 +48,7 @@ For a detailed list of features, check out the [wiki](https://github.com/venanti
 All of the above features are enabled by default, but can be turned off by setting a `false` flag in your profile. If you wanted Ultra to essentially no-op, your profile would look like this: 
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.3.4"]]
+{:user {:plugins [[venantius/ultra "0.3.5"]]
         :ultra {:repl         false
                 :stacktraces  false
                 :tests        false
@@ -64,7 +64,7 @@ At the moment Ultra supports the following color schemes:
 If you want to set the colors yourself instead of using a theme you can configure them directly, e.g.:
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.3.4"]]
+{:user {:plugins [[venantius/ultra "0.3.5"]]
         :ultra {:color-scheme {:delimiter [:red]
                                :tag [:red]
                                :nil [:cyan]
