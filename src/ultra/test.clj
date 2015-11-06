@@ -4,8 +4,7 @@
             [clojure.pprint :as pp]
             [puget.color.ansi :as ansi]
             [puget.printer :as printer]
-            [ultra.test.diff :as diff]
-            [whidbey.render :as render]))
+            [ultra.test.diff :as diff]))
 
 
 (defn generate-diffs

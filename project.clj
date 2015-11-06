@@ -4,11 +4,13 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/tools.nrepl "0.2.10"]
+                 [org.clojure/tools.nrepl "0.2.11"]
 
                  [io.aviso/pretty "0.1.18"]
-                 [mvxcvi/whidbey "1.0.0"]
-                 [mvxcvi/puget "0.8.1"]
+                 [mvxcvi/whidbey "1.1.1"]
+                 [im.chit/hara.class "2.2.11"]
+                 [im.chit/hara.reflect "2.2.11"]
+                 [mvxcvi/puget "0.9.2"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]
                  [robert/hooke "1.3.0"]
                  [venantius/glow "0.1.2"]]

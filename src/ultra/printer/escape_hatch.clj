@@ -1,17 +1,18 @@
 (ns ultra.printer.escape-hatch
   "Hooks into `puget.printer` that are intended as an escape hatch for
    custom data types."
-  (:require [puget.data :as data]
-            [puget.printer :refer [format-doc]]))
+  #_(:require [puget.data :as data]
+            [puget.printer :refer [format-doc]])
+  )
 
-(def escaped-classes
+#_(def escaped-classes
   #{"class datomic.db.Db"})
 
-(intern
+#_(intern
   'puget.printer
   'formatter-dispatch
   (fn [value]
-    (cond 
+    (cond
       (satisfies? data/ExtendedNotation value) ::tagged-literal
       (escaped-classes (str (class value))) :default
       :else (type value))))

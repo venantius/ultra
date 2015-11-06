@@ -3,7 +3,7 @@
             [clojure.java.io :as io]
             [io.aviso.exception]
             [puget.color.ansi :as ansi]
-            [whidbey.render]))
+            [whidbey.repl]))
 
 (defn valid-colorscheme?
   [k]
@@ -60,7 +60,7 @@
                      color-scheme
                      (load-colorscheme color-scheme))]
     (alter-var-root
-      #'whidbey.render/options
+      #'whidbey.repl/printer
       merge
       (assoc opts :color-scheme color-scheme))
     (set-pretty-colors color-scheme)))

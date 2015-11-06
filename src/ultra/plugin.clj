@@ -13,7 +13,7 @@
   (if (not (false? repl))
     (-> project
         (plugin/set-interactive-eval-renderer
-         'whidbey.render/render-str)
+         'whidbey.repl/render-str)
         (plugin/add-nrepl-middleware
          `clojure.tools.nrepl.middleware.render-values/render-values))
     project))
@@ -36,11 +36,7 @@
   [project opts]
   (-> project
       (plugin/add-dependencies
-       (plugin/plugin-dependency project 'venantius/ultra)
-       ['mvxcvi/puget "0.8.1"]
-       ['mvxcvi/whidbey "1.0.0"]
-       ['im.chit/hara.class "2.2.11"]
-       ['im.chit/hara.reflect "2.2.11"])
+       (plugin/plugin-dependency project 'venantius/ultra))
       (update-in [:injections] concat `[(require 'ultra.hardcore)
                                         (ultra.hardcore/add-test-hooks! ~opts)])
       (assoc :monkeypatch-clojure-test false)

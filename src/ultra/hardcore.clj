@@ -1,6 +1,7 @@
 (ns ultra.hardcore
   "See what I did there?"
   (:require [clojure.tools.nrepl.server]
+            [ultra.colorscheme :as colorscheme]
             [robert.hooke :refer [add-hook]]))
 
 (def configured? (atom {}))
@@ -48,8 +49,7 @@
   "Dynamically import ultra's colorscheme namespace and configures it."
   {:added "0.3.0"}
   [opts]
-  `(do ~(require 'ultra.colorscheme)
-       (ultra.colorscheme/set-colorscheme ~opts)))
+  `(colorscheme/set-colorscheme ~opts))
 
 (defn run-configuration
   "Initialize and configure Ultra's various components."
