@@ -1,4 +1,4 @@
-(defproject venantius/ultra "0.3.5-SNAPSHOT"
+(defproject venantius/ultra "0.4.0-SNAPSHOT"
   :description "Ultra: A Leiningen plugin for a superior development environment"
   :url "http://github.com/venantius/ultra"
   :license {:name "Eclipse Public License"
