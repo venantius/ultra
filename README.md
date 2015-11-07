@@ -12,21 +12,23 @@ I've written a blog post describing Ultra in greater depth [here](http://blog.ve
 
 ## Installation
 
-To install and configure Ultra, add something like the following to your `~/.lein/profiles.clj`
+To install Ultra, just add the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.3.4"]]
-        :ultra {:color-scheme :solarized_dark}}}
+{:user {:plugins [[venantius/ultra "0.4.0"]]}}
 ```
 
 ### Requirements
 
-Leiningen version 2.5.2+
+As of Ultra `0.4.0`, Clojure 1.7.x is required due to reader conditional usage in Ultar's dependencies.  
+Ultra `0.3.4` is the last version supporting Clojure 1.6.x
+
+Leiningen version 2.5.2+  
 JDK 7+
 
 #### ClojureScript Support
 
-At the moment, Ultra doesn't have ClojureScript support at the REPL. See https://github.com/brandonbloom/fipp/issues/7.
+At the moment, Ultra doesn't have ClojureScript support at the REPL. The relevant upstream issue to track work on this is https://github.com/greglook/puget/issues/27; from there, Whidbey will need to be updated, and then Ultra will be able to consume the changes.
 
 ## Features
 For a detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki). Here's the highlight reel:
@@ -45,14 +47,13 @@ For a detailed list of features, check out the [wiki](https://github.com/venanti
 
 ## Configuration
 
-All of the above features are enabled by default, but can be turned off by setting a `false` flag in your profile. If you wanted Ultra to essentially no-op, your profile would look like this: 
+All of the above features are enabled by default, but can be turned off by setting a `false` flag in your profile. If you wanted Ultra to essentially no-op, your configuration map would look like this: 
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.3.4"]]
-        :ultra {:repl         false
-                :stacktraces  false
-                :tests        false
-                :java         false}}}
+{:ultra {:repl         false
+         :stacktraces  false
+         :tests        false
+         :java         false}}}}
 ```
 
 ### Color schemes
@@ -64,21 +65,56 @@ At the moment Ultra supports the following color schemes:
 If you want to set the colors yourself instead of using a theme you can configure them directly, e.g.:
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.3.4"]]
-        :ultra {:color-scheme {:delimiter [:red]
-                               :tag [:red]
-                               :nil [:cyan]
-                               :boolean [:cyan]
-                               :number [:cyan]
-                               :string [:cyan]
-                               :character [:cyan]
-                               :keyword [:green]
-                               :symbol nil
-                               :function-symbol [:blue]
-                               :class-delimiter [:blue]
-                               :class-name nil
-                               :exception nil}}}}
+{:ultra {:color-scheme {:delimiter [:red]
+                        :tag [:red]
+                        :nil [:cyan]
+                        :boolean [:cyan]
+                        :number [:cyan]
+                        :string [:cyan]
+                        :character [:cyan]
+                        :keyword [:green]
+                        :symbol nil
+                        :function-symbol [:blue]
+                        :class-delimiter [:blue]
+                        :class-name nil
+                        :exception nil}}}
 ```
+
+### Additional REPL Configuration
+
+Ultra uses [Whidbey](https://github.com/greglook/whidbey) as its pretty-printing engine, and supports all of Whidbey's configuration flags. 
+
+```clojure
+{:ultra {:repl {:width 180
+                :map-delimiter ""
+                :extend-notation true
+                :print-meta true
+                 ...}}}
+```
+
+###### `:width`
+
+Number of characters to try to wrap pretty-printed forms at.
+
+###### `:print-meta`
+
+If true, metadata will be printed before values.
+
+###### `:sort-keys`
+
+Print maps and sets with ordered keys. Defaults to true, which will sort all collections. If a number, counted collections will be sorted up to the set size. Otherwise, collections are not sorted before printing.
+
+###### `:map-delimiter`
+
+The text placed between key-value pairs in a map.
+
+###### `:map-coll-separator`
+
+The text placed between a map key and a collection value. The keyword :line will cause line breaks if the whole map does not fit on a single line.
+
+###### `:seq-limit`
+
+If set to a positive number, then lists will only render at most the first n elements. This can help prevent unintentional realization of infinite lazy sequences.
 
 ## Contributing
 

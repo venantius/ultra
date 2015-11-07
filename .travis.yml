@@ -1,3 +1,4 @@
 language: clojure
 notifications:
   email: false
+script: lein trampoline test

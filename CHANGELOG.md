@@ -1,5 +1,11 @@
+## 0.4.0
+ * Fixed the diff-dispatching interface to correctly diff types - in particular, resolves a bug when diffing hash-maps and array-maps.
+ * Changed the behavior of `source` at the REPL to be colorized.
+ * Adds support for custom whidbey/puget options, including specifying the width.
+ * Updated dependencies.
+
 ## 0.3.4
- * Updated dependencies. Should set the stage for ClojureScript support.
+ * Updated dependencies.
 
 ## 0.3.3
  * Add a bugfix for a colorscheme configuration issue that was introduced in 0.3.0
