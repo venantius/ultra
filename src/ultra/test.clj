@@ -3,7 +3,6 @@
   (:require [clojure.data :as data]
             [clojure.pprint :as pp]
             [puget.color.ansi :as ansi]
-            [puget.printer :as printer]
             [ultra.test.diff :as diff]))
 
 

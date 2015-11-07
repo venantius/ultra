@@ -4,8 +4,7 @@
             [clojure.tools.nrepl.server]
             [glow.core :as glow]
             [io.aviso.repl :as pretty-repl]
-            [ultra.printer :refer [cprint]]
-            [ultra.printer.escape-hatch]))
+            [ultra.printer :refer [cprint]]))
 
 (defmacro source
   "Prints the source code for the given symbol, if it can find it.
@@ -57,7 +56,9 @@
   [repl stacktraces]
   (when (not (false? repl))
     (require 'ultra.repl.whidbey)
+    (require 'whidbey.repl)
     (eval '(ultra.repl.whidbey/add-whidbey-middleware))
+    (eval `(whidbey.repl/update-options! ~repl))
     (replace-source))
   (when (not (false? stacktraces))
     (add-pretty-middleware)))

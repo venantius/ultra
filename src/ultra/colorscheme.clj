@@ -62,5 +62,5 @@
     (alter-var-root
       #'whidbey.repl/printer
       merge
-      (assoc opts :color-scheme color-scheme))
+      {:color-scheme color-scheme})
     (set-pretty-colors color-scheme)))
