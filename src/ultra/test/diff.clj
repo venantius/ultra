@@ -55,9 +55,11 @@
   (fn [a b actual expected]
     (cond
       (and (string? a) (string? b)) ::diff-strs
-      (and (vector? a) (vector? b)) ::diff-vecs
-      (and (list? a) (list? b)) ::diff-vecs
-      (not= (class a) (class b)) ::wrong-class
+      (and (vector? actual) (vector? expected)) ::diff-vecs
+      (and (list? actual) (list? expected)) ::diff-vecs
+      (and (not= (class a) (class b))
+           (some? a)
+           (some? b)) ::wrong-class
       :default [a b actual expected])))
 
 (defmethod prn-diffs ::diff-strs
@@ -71,8 +73,8 @@
   (print-expected actual expected)
   (let [puget-str (fn [x] (s/trim-newline (with-out-str (cprint x))))]
     (print "\nexpected: ")
-    (let [a (with-out-str (println (puget-str b) 
-                                   "to be an instance of" 
+    (let [a (with-out-str (println (puget-str b)
+                                   "to be an instance of"
                                    (class a)))
           b (with-out-str (println (puget-str b)
                                    "is an instance of"
