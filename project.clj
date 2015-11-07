@@ -16,4 +16,5 @@
                  [venantius/glow "0.1.2"]]
   :test-selectors {:default (complement :demo)
                    :demo :demo}
+  :min-lein-version "2.5.2"
   :eval-in-leiningen true)
