@@ -1,6 +1,7 @@
-## 0.3.5
- * Fixed the diff-dispatching interface to correctly diff types
+## 0.4.0
+ * Fixed the diff-dispatching interface to correctly diff types - in particular, resolves a bug when diffing hash-maps and array-maps.
  * Changed the behavior of `source` at the REPL to be colorized.
+ * Adds support for custom whidbey/puget options, including specifying the width.
  * Updated dependencies.
 
 ## 0.3.4

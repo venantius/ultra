@@ -10,3 +10,7 @@ In addition, it's helpful to include the following information:
  - Your JDK version
  - Your Leiningen version
  - Which version of Ultra you're using
+
+## Tests
+
+I will be the first person to admit that this library is quite short on test coverage. That has become something of a problem over time, with PRs being submitted with breaking changes in other, unexpected areas. My policy going forward is going to be to require tests as part of a pull request; I simply can't keep accepting pull requests that I have to go back and re-write later because the original author didn't test the new behavior thoroughly enough.
