@@ -20,7 +20,7 @@ To install Ultra, just add the following to your `~/.lein/profiles.clj`
 
 ### Requirements
 
-As of Ultra `0.4.0`, Clojure 1.7.x is required due to reader conditional usage in Ultar's dependencies.  
+As of Ultra `0.4.0`, Clojure 1.7.x is required due to reader conditional usage in Ultra's dependencies.  
 Ultra `0.3.4` is the last version supporting Clojure 1.6.x
 
 Leiningen version 2.5.2+  
