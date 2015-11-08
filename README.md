@@ -36,6 +36,9 @@ For a detailed list of features, check out the [wiki](https://github.com/venanti
 *A colorized REPL!*
 ![colorized repl](https://venantius.github.io/ultra/images/colorized-repl.png)
 
+*Syntax-highlighted `source`!*
+![colorized source](https://venantius.github.io/ultra/images/colorized-source.png)
+
 *[Clearer test output](https://github.com/venantius/ultra/wiki/Tests)!*
 ![test output demo](https://venantius.github.io/ultra/images/test-output.png)
 
