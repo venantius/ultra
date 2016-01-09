@@ -1,18 +1,18 @@
 {
- :delimiter nil
- :tag       nil
+ :delimiter [:red]
+ :tag       [:red]
 
- :nil       nil
- :boolean   nil
- :number    nil
- :string    nil
- :character nil
- :keyword   nil
+ :nil       [:cyan]
+ :boolean   [:cyan]
+ :number    [:cyan]
+ :string    [:cyan]
+ :character [:cyan]
+ :keyword   [:green]
  :symbol    nil
 
- :function-symbol nil
- :class-delimiter nil
+ :function-symbol [:blue]
+ :class-delimiter [:blue]
  :class-name nil
 
- :exception nil
+ :exception [:red]
 }
