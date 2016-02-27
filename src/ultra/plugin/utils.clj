@@ -1,7 +1,26 @@
 (ns ultra.plugin.utils
   "Convenience functions for Leiningen plugins.
-   
-   Credit to @greglook for most of these.")
+
+   Credit to @greglook for most of these."
+  (:require [clj-semver.core :as semver]))
+
+(defn remove-plugin
+  [project plugin]
+  (assoc project :plugins
+         (into [] (remove #(= (first %) plugin) (:plugins project)))))
+
+(defn clojure-dep?
+  "Returns the specific dependency entry for Clojure? (org.clojure/clojure)"
+  {:added "0.4.1"}
+  [depvec]
+  (when (= (first depvec) 'org.clojure/clojure)
+    depvec))
+
+(defn supports-cljc?
+  "Does this project support reader conditions (.cljc files)?"
+  {:added "0.4.1"}
+  [project]
+  (not (semver/older? (second (some clojure-dep? (:dependencies project))) "1.7.0")))
 
 (defn- find-plugin-version
   "Looks up the plugins in the project map and tries to find the version
