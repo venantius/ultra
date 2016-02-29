@@ -30,18 +30,36 @@
           (whidbey.repl/init! ~whidbey-opts)
           (ultra.hardcore/configure! ~opts)))))
 
+(defn add-ultra-legacy
+  "If this project doesn't support reader conditionals, inject Ultra 0.3.4 and
+  emit a warning."
+  {:added "0.4.1"}
+  [project]
+  (defonce warn
+    (println (format (str "Warning: the Clojure version for this project (%s) "
+                          "does not support reader conditionals. Ultra is "
+                          "falling back to version 0.3.4.")
+                     (second (some plugin/clojure-dep? (:dependencies project))))))
+  (plugin/add-dependencies
+   project
+   ['venantius/ultra "0.3.4"]))
+
 (defn add-ultra
   "Add ultra as a project dependency and inject configuration."
   {:added "0.1.0"}
   [project opts]
-  (-> project
-      (plugin/add-dependencies
-       (plugin/plugin-dependency project 'venantius/ultra))
-      (update-in [:injections] concat `[(require 'ultra.hardcore)
-                                        (ultra.hardcore/add-test-hooks! ~opts)])
-      (assoc :monkeypatch-clojure-test false)
-      (add-repl-middleware opts)
-      (inject-repl-initialization opts)))
+  (if (plugin/supports-cljc? project)
+    (-> project
+        (plugin/add-dependencies
+         (plugin/plugin-dependency project 'venantius/ultra))
+        (update-in [:injections] concat `[(require 'ultra.hardcore)
+                                          (ultra.hardcore/add-test-hooks! ~opts)])
+        (assoc :monkeypatch-clojure-test false)
+        (add-repl-middleware opts)
+        (inject-repl-initialization opts))
+    (-> project
+        add-ultra-legacy
+        (plugin/remove-plugin 'venantius/ultra))))
 
 (defn middleware
   "Ultra's middleware re-writes the project map."

@@ -1,3 +1,7 @@
+## 0.4.1
+ * Fixed a bug wherein the default colorscheme was devoid of colors
+ * Added logic to fall back to Ultra version 0.3.4 in the event that Ultra was being used in a project with Clojure version <1.7.0
+
 ## 0.4.0
  * Fixed the diff-dispatching interface to correctly diff types - in particular, resolves a bug when diffing hash-maps and array-maps.
  * Changed the behavior of `source` at the REPL to be colorized.
