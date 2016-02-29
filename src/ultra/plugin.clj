@@ -40,9 +40,10 @@
                           "does not support reader conditionals. Ultra is "
                           "falling back to version 0.3.4.")
                      (second (some plugin/clojure-dep? (:dependencies project))))))
+  (merge-with merge {:ultra {:color-scheme :solarized_dark}}
   (plugin/add-dependencies
    project
-   ['venantius/ultra "0.3.4"]))
+   ['venantius/ultra "0.3.4"])))
 
 (defn add-ultra
   "Add ultra as a project dependency and inject configuration."
