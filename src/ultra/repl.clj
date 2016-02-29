@@ -45,7 +45,7 @@
   []
   (alter-var-root
    #'main/repl-caught
-   (constantly pretty-repl/pretty-pst))
+   (constantly pretty-repl/pretty-repl-caught))
   (alter-var-root
    #'repl/pst
    (constantly pretty-repl/pretty-pst)))

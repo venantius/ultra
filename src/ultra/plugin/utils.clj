@@ -17,10 +17,15 @@
     depvec))
 
 (defn supports-cljc?
-  "Does this project support reader conditions (.cljc files)?"
+  "Does this project support reader conditions (.cljc files)?
+
+  Checks for which version of Clojure the project is using. If no Clojure
+  version is specified, returns true."
   {:added "0.4.1"}
   [project]
-  (not (semver/older? (second (some clojure-dep? (:dependencies project))) "1.7.0")))
+  (if-let [clj (some clojure-dep? (:dependencies project))]
+    (not (semver/older? (second clj) "1.7.0"))
+    true))
 
 (defn- find-plugin-version
   "Looks up the plugins in the project map and tries to find the version
@@ -44,7 +49,7 @@
        "RELEASE")))
 
 (defn add-dependencies
-  "Adds some dependencies to the end of the current vector."
+  "Adds dependencies to the end of the current vector."
   {:added "0.3.3"}
   [project & deps]
   (update-in project [:dependencies] concat deps))

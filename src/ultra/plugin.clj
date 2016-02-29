@@ -37,7 +37,7 @@
   [project]
   (defonce warn
     (println (format (str "Warning: the Clojure version for this project (%s) "
-                          "does not support reader conditionals. Ultra is"
+                          "does not support reader conditionals. Ultra is "
                           "falling back to version 0.3.4.")
                      (second (some plugin/clojure-dep? (:dependencies project))))))
   (plugin/add-dependencies

@@ -9,7 +9,7 @@
                  [grimradical/clj-semver "0.3.0" :exclusions [org.clojure/clojure]]
                  [im.chit/hara.class "2.2.11"]
                  [im.chit/hara.reflect "2.2.11"]
-                 [io.aviso/pretty "0.1.18"]
+                 [io.aviso/pretty "0.1.23"]
                  [mvxcvi/whidbey "1.1.1"]
                  [mvxcvi/puget "0.9.2"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]
