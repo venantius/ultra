@@ -15,15 +15,14 @@ I've written a blog post describing Ultra in greater depth [here](http://blog.ve
 To install Ultra, just add the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.4.0"]]}}
+{:user {:plugins [[venantius/ultra "0.4.1"]]}}
 ```
 
 ### Requirements
 
-As of Ultra `0.4.0`, Clojure 1.7.x is required due to reader conditional usage in Ultra's dependencies.  
-Ultra `0.3.4` is the last version supporting Clojure 1.6.x
+As of Ultra `0.4.0`, Clojure 1.7.x is required due to reader conditional usage in Ultra's dependencies. Ultra `0.3.4` is the last version supporting Clojure 1.6.x. Ultra `0.4.1`+ will intelligently fall back to Ultra `0.3.4` if it detects a Clojure version that is below `1.7.0.`
 
-Leiningen version 2.5.2+  
+Leiningen version 2.5.2+
 JDK 7+
 
 #### ClojureScript Support
@@ -45,12 +44,12 @@ For a detailed list of features, check out the [wiki](https://github.com/venanti
 *Better stacktraces!*
 ![test stacktrace demo](https://venantius.github.io/ultra/images/colorized-test-stacktrace.png)
 
-*[Java object introspection](https://github.com/venantius/ultra/wiki/Java)!* 
+*[Java object introspection](https://github.com/venantius/ultra/wiki/Java)!*
 ![java introspection](https://venantius.github.io/ultra/images/java-interop.png)
 
 ## Configuration
 
-All of the above features are enabled by default, but can be turned off by setting a `false` flag in your profile. If you wanted Ultra to essentially no-op, your configuration map would look like this: 
+All of the above features are enabled by default, but can be turned off by setting a `false` flag in your profile. If you wanted Ultra to essentially no-op, your configuration map would look like this:
 
 ```clojure
 {:ultra {:repl         false
@@ -58,34 +57,9 @@ All of the above features are enabled by default, but can be turned off by setti
          :tests        false
          :java         false}}}}
 ```
+### REPL Configuration
 
-### Color schemes
-
-At the moment Ultra supports the following color schemes:
- - `:solarized_dark`
- - `:default`
-
-If you want to set the colors yourself instead of using a theme you can configure them directly, e.g.:
-
-```clojure
-{:ultra {:color-scheme {:delimiter [:red]
-                        :tag [:red]
-                        :nil [:cyan]
-                        :boolean [:cyan]
-                        :number [:cyan]
-                        :string [:cyan]
-                        :character [:cyan]
-                        :keyword [:green]
-                        :symbol nil
-                        :function-symbol [:blue]
-                        :class-delimiter [:blue]
-                        :class-name nil
-                        :exception nil}}}
-```
-
-### Additional REPL Configuration
-
-Ultra uses [Whidbey](https://github.com/greglook/whidbey) as its pretty-printing engine, and supports all of Whidbey's configuration flags. 
+Ultra uses [Whidbey](https://github.com/greglook/whidbey) as its pretty-printing engine, and supports all of Whidbey's configuration flags.
 
 ```clojure
 {:ultra {:repl {:width 180
@@ -125,19 +99,17 @@ Please open an issue here before submitting pull requests; I prefer to have docu
 
 Bug fixes and code cleanup are always appreciated and won't get too much pushback; new features will be held to a higher standard - this whole project is something of a massive exercise in ego, after all.
 
-Pull Requests for new color schemes welcome; please include screenshots in your submission.
-
 ## Motivation
 
 ...or, why didn't you just put all of this stuff in your `~/.lein/profiles.clj`?
 
-In short, my `:user` profile was starting to become bloated. It was difficult to tell whether plugins were interfering with each other, and my `:injections` key in particular was starting to look a little unwieldy. 
+In short, my `:user` profile was starting to become bloated. It was difficult to tell whether plugins were interfering with each other, and my `:injections` key in particular was starting to look a little unwieldy.
 
 At some point I realized I was up to my neck in alligators and that it was time to push things into a standalone repository.
 
 ## Special Thanks
 
-Ultra wraps, calls, or draws inspiration from the following libraries, and their owners and authors deserve credit for doing most of the hard work.  
+Ultra wraps, calls, or draws inspiration from the following libraries, and their owners and authors deserve credit for doing most of the hard work.
 
  - [AvisoNovate/pretty](https://github.com/AvisoNovate/pretty) - Better exceptions
  - [brentonashworth/lein-difftest](https://github.com/brentonashworth/lein-difftest) - Lein-difftest - test diffs using difform
@@ -150,6 +122,6 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
 
 ## License
 
-In some cases, I've borrowed code snippets from libraries above and re-written them. Where that is the case, the Copyright of the original author[s] remains in effect. Any modifications to their code, as well as all original content, is Copyright © 2015 W. David Jarvis.
+In some cases, I've borrowed code snippets from libraries above and re-written them. Where that is the case, the Copyright of the original author[s] remains in effect. Any modifications to their code, as well as all original content, is Copyright © 2016 W. David Jarvis.
 
 Distributed under the Eclipse Public License 1.0, the same as Clojure.
