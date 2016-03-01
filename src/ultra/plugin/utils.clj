@@ -9,6 +9,11 @@
   (assoc project :plugins
          (into [] (remove #(= (first %) plugin) (:plugins project)))))
 
+(defn remove-dependency
+  [project dependency]
+  (assoc project :dependencies
+         (into [] (remove #(= (first %) dependency) (:dependencies project)))))
+
 (defn clojure-dep?
   "Returns the specific dependency entry for Clojure? (org.clojure/clojure)"
   {:added "0.4.1"}
@@ -47,6 +52,12 @@
    plugin
    (or (find-plugin-version project plugin)
        "RELEASE")))
+
+(defn add-plugins
+  "Adds plugins to the end of the current vector."
+  {:added "0.3.3"}
+  [project & plugins]
+  (update-in project [:plugins] concat plugins))
 
 (defn add-dependencies
   "Adds dependencies to the end of the current vector."

@@ -18,6 +18,20 @@
          `clojure.tools.nrepl.middleware.render-values/render-values))
     project))
 
+(defn add-legacy-repl-middleware
+  "Check to see if we need to add nREPL middleware, and if so, add it.
+
+  LEGACY"
+  {:added "0.4.1"}
+  [project {:keys [repl] :as opts}]
+  (if (not (false? repl))
+    (-> project
+        (plugin/set-interactive-eval-renderer
+         'whidbey.render/render-str)
+        (plugin/add-nrepl-middleware
+         `clojure.tools.nrepl.middleware.render-values/render-values))
+    project))
+
 (defn inject-repl-initialization
   "Move most configuration into REPL initialization."
   {:added "0.3.0"}
@@ -34,16 +48,31 @@
   "If this project doesn't support reader conditionals, inject Ultra 0.3.4 and
   emit a warning."
   {:added "0.4.1"}
-  [project]
+  [project opts]
   (defonce warn
     (println (format (str "Warning: the Clojure version for this project (%s) "
                           "does not support reader conditionals. Ultra is "
                           "falling back to version 0.3.4.")
                      (second (some plugin/clojure-dep? (:dependencies project))))))
-  (merge-with merge {:ultra {:color-scheme :solarized_dark}}
-  (plugin/add-dependencies
-   project
-   ['venantius/ultra "0.3.4"])))
+  (-> project
+      (plugin/remove-plugin 'venantius/ultra)
+      (plugin/remove-dependency 'mvxcvi/puget)
+      (plugin/remove-dependency 'mvxcvi/whidbey)
+      (plugin/remove-dependency 'im.chit/hara.class)
+      (plugin/remove-dependency 'im.chit/hara.reflect)
+      (plugin/add-plugins
+       ['venantius/ultra "0.3.4"])
+      (plugin/add-dependencies
+       ['mvxcvi/puget "0.8.1"]
+       ['venantius/ultra "0.3.4"]
+       ['mvxcvi/whidbey "1.0.0"]
+       ['im.chit/hara.class "2.1.8"]
+       ['im.chit/hara.reflect "2.1.8"])
+      (update-in [:injections] concat `[(require 'ultra.hardcore)
+                                        (ultra.hardcore/add-test-hooks! ~opts)])
+      (assoc :monkeypatch-clojure-test false)
+      (add-legacy-repl-middleware opts)
+      (inject-repl-initialization opts)))
 
 (defn add-ultra
   "Add ultra as a project dependency and inject configuration."
@@ -59,8 +88,7 @@
         (add-repl-middleware opts)
         (inject-repl-initialization opts))
     (-> project
-        add-ultra-legacy
-        (plugin/remove-plugin 'venantius/ultra))))
+        (add-ultra-legacy opts))))
 
 (defn middleware
   "Ultra's middleware re-writes the project map."
