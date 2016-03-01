@@ -54,25 +54,26 @@
                           "does not support reader conditionals. Ultra is "
                           "falling back to version 0.3.4.")
                      (second (some plugin/clojure-dep? (:dependencies project))))))
-  (-> project
-      (plugin/remove-plugin 'venantius/ultra)
-      (plugin/remove-dependency 'mvxcvi/puget)
-      (plugin/remove-dependency 'mvxcvi/whidbey)
-      (plugin/remove-dependency 'im.chit/hara.class)
-      (plugin/remove-dependency 'im.chit/hara.reflect)
-      (plugin/add-plugins
-       ['venantius/ultra "0.3.4"])
-      (plugin/add-dependencies
-       ['mvxcvi/puget "0.8.1"]
-       ['venantius/ultra "0.3.4"]
-       ['mvxcvi/whidbey "1.0.0"]
-       ['im.chit/hara.class "2.1.8"]
-       ['im.chit/hara.reflect "2.1.8"])
-      (update-in [:injections] concat `[(require 'ultra.hardcore)
-                                        (ultra.hardcore/add-test-hooks! ~opts)])
-      (assoc :monkeypatch-clojure-test false)
-      (add-legacy-repl-middleware opts)
-      (inject-repl-initialization opts)))
+  (let [opts (merge {:color-scheme :solarized_dark} opts)]
+    (-> project
+        (plugin/remove-plugin 'venantius/ultra)
+        (plugin/remove-dependency 'mvxcvi/puget)
+        (plugin/remove-dependency 'mvxcvi/whidbey)
+        (plugin/remove-dependency 'im.chit/hara.class)
+        (plugin/remove-dependency 'im.chit/hara.reflect)
+        (plugin/add-plugins
+         ['venantius/ultra "0.3.4"])
+        (plugin/add-dependencies
+         ['mvxcvi/puget "0.8.1"]
+         ['venantius/ultra "0.3.4"]
+         ['mvxcvi/whidbey "1.0.0"]
+         ['im.chit/hara.class "2.1.8"]
+         ['im.chit/hara.reflect "2.1.8"])
+        (update-in [:injections] concat `[(require 'ultra.hardcore)
+                                          (ultra.hardcore/add-test-hooks! ~opts)])
+        (assoc :monkeypatch-clojure-test false)
+        (add-legacy-repl-middleware opts)
+        (inject-repl-initialization opts))))
 
 (defn add-ultra
   "Add ultra as a project dependency and inject configuration."
