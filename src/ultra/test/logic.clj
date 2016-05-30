@@ -7,12 +7,18 @@
 (def logic-ops
   #{'not 'and 'or})
 
-(defn quote-logic [form]
+(defn quote-logic
+  "Preserves logic expressions to assist debugging."
+  {:added "0.4.2"}
+  [form]
   (if (and (seq? form) (logic-ops (first form)))
     `(list '~(first form) ~@(map quote-logic (rest form)))
     form))
 
-(defn assert-logic [msg form]
+(defn assert-logic
+  "Preserves useful information in the :with-values key of the test."
+  {:added "0.4.2"}
+  [msg form]
   `(let [result# ~form]
      (test/do-report
        {:type (if result# :pass :fail)
@@ -22,7 +28,10 @@
         :with-values ~(quote-logic form)})
      result#))
 
-(defn assert-predicate [msg form]
+(defn assert-predicate
+  "Replaces core.test/assert-predicate to report more useful output."
+  {:added "0.4.2"}
+  [msg form]
   (let [args (rest form)
         pred (first form)]
     `(let [values# (list ~@args)
@@ -37,7 +46,10 @@
                          hint#)})
        result#)))
 
-(defn maybe-print-values [{:keys [with-values]}]
+(defn maybe-print-values
+  "Reports the expression values of a test result when they exist."
+  {:added "0.4.2"}
+  [{:keys [with-values]}]
   (when with-values
     (println
       "\n  values:"

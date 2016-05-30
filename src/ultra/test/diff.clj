@@ -15,7 +15,9 @@
              (s/replace
                x #"\n" (str "\n" whitespace))))))
 
-(defn pretty [s]
+(defn pretty
+  {:added "0.4.2"}
+  [s]
   (s/trim (indent (with-out-str (cprint s)) 10)))
 
 (defn print-expected
