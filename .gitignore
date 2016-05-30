@@ -8,3 +8,5 @@ pom.xml.asc
 /TODO
 /.lein-*
 /.nrepl-port
+/.idea
+*.iml

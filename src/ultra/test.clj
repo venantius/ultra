@@ -40,13 +40,14 @@
         (doseq [[actual [a b]] diffs
                 :when (or a b)]
           (diff/prn-diffs a b actual expected))
-        (diff/print-expected actual expected))))
+        (diff/print-expected actual expected))
+      (logic/maybe-print-values event)))
 
   (defmethod assert-expr :default [msg form]
     (cond
       (and (sequential? form) (logic/logic-ops (first form)))
       (logic/assert-logic msg form)
       (and (sequential? form) (function? (first form)))
-      (assert-predicate msg form)
+      (logic/assert-predicate msg form)
       :else
       (assert-any msg form))))

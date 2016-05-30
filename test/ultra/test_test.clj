@@ -20,3 +20,7 @@
     (is (and (:name pirate)
              (or (empty? pirate) (:age pirate))))
     (is (not (= (:rating pirate) :notorious)))))
+
+(deftest predicate-values-are-shown-when-appropriate
+  (is (odd? 2))
+  (is (odd? (+ 1 (inc 0)))))
