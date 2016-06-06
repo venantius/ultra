@@ -15,12 +15,17 @@
              (s/replace
                x #"\n" (str "\n" whitespace))))))
 
+(defn pretty
+  {:added "0.4.2"}
+  [s]
+  (s/trim (indent (with-out-str (cprint s)) 10)))
+
 (defn print-expected
   "Pretty-prints expected and actual values."
   {:added "0.1.3"}
   [actual expected]
-  (let [expected (s/trim (indent (with-out-str (cprint expected)) 10))
-        actual (s/trim (indent (with-out-str (cprint actual)) 10))]
+  (let [expected (pretty expected)
+        actual (pretty actual)]
     (println "\nexpected:" expected)
     (println "  actual:" actual)))
 

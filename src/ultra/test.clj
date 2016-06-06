@@ -3,8 +3,8 @@
   (:require [clojure.data :as data]
             [clojure.pprint :as pp]
             [puget.color.ansi :as ansi]
-            [ultra.test.diff :as diff]))
-
+            [ultra.test.diff :as diff]
+            [ultra.test.logic :as logic]))
 
 (defn generate-diffs
   [a more]
@@ -40,4 +40,14 @@
         (doseq [[actual [a b]] diffs
                 :when (or a b)]
           (diff/prn-diffs a b actual expected))
-        (diff/print-expected actual expected)))))
+        (diff/print-expected actual expected))
+      (logic/maybe-print-values event)))
+
+  (defmethod assert-expr :default [msg form]
+    (cond
+      (and (sequential? form) (logic/logic-ops (first form)))
+      (logic/assert-logic msg form)
+      (and (sequential? form) (function? (first form)))
+      (logic/assert-predicate msg form)
+      :else
+      (assert-any msg form))))
