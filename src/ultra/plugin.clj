@@ -95,9 +95,12 @@
   "Ultra's middleware re-writes the project map."
   {:added "0.1.0"}
   [project]
-  (let [opts (-> (:ultra project)
-                 (assoc :print-meta false
-                        :map-delimiter ""
-                        :print-fallback :print
-                        :sort-keys true))]
+  (let [default-whidbey-opts {:print-meta false
+                              :map-delimiter ""
+                              :print-fallback :print
+                              :sort-keys true}
+        repl-opts (merge default-whidbey-opts
+                         (:repl (:ultra project)))
+        opts (-> (:ultra project)
+                 (assoc :repl repl-opts))]
     (add-ultra project opts)))
