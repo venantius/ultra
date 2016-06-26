@@ -2,5 +2,4 @@ language: clojure
 notifications:
   email: false
 script: 
-  - lein upgrade
-  - lein trampoline test
+  - lein test
