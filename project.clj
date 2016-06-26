@@ -7,7 +7,7 @@
                  [org.clojure/tools.nrepl "0.2.12"]
 
                  [grimradical/clj-semver "0.3.0" :exclusions [org.clojure/clojure]]
-                 [io.aviso/pretty "0.1.24"]
+                 [io.aviso/pretty "0.1.26"]
                  [mvxcvi/whidbey "1.3.0"]
                  [mvxcvi/puget "1.0.0"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]
