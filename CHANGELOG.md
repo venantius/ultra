@@ -1,5 +1,7 @@
-## 0.4.2
+## 0.5.0
  * Better test reporting on logical expressions
+ * Fixed a bug whereby Ultra wouldn't set the intended defaults for Whidbey
+ * Removed Java utility functions.
 
 ## 0.4.1
  * Fixed a bug wherein the default colorscheme was devoid of colors

@@ -44,9 +44,6 @@ For a detailed list of features, check out the [wiki](https://github.com/venanti
 *Better stacktraces!*
 ![test stacktrace demo](https://venantius.github.io/ultra/images/colorized-test-stacktrace.png)
 
-*[Java object introspection](https://github.com/venantius/ultra/wiki/Java)!*
-![java introspection](https://venantius.github.io/ultra/images/java-interop.png)
-
 ## Configuration
 
 All of the above features are enabled by default, but can be turned off by setting a `false` flag in your profile. If you wanted Ultra to essentially no-op, your configuration map would look like this:
@@ -54,8 +51,7 @@ All of the above features are enabled by default, but can be turned off by setti
 ```clojure
 {:ultra {:repl         false
          :stacktraces  false
-         :tests        false
-         :java         false}}}}
+         :tests        false}}}}
 ```
 ### REPL Configuration
 
@@ -117,7 +113,6 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
  - [greglook/whidbey](https://github.com/greglook/whidbey) - Puget nREPL middleware
  - [jaycfields/expectations](https://github.com/jaycfields/expectations) - The Expectations testing library
  - [pjstadig/humane-test-output](https://github.com/pjstadig/humane-test-output) - Diffs in tests using clojure.test
- - [zcaudate/hara](https://github.com/zcaudate/hara) - General purpose clojure utility library
  - [zcaudate/vinyasa](https://github.com/zcaudate/vinyasa) - Give your Clojure workflow more flow
 
 ## License
