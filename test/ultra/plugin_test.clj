@@ -12,8 +12,6 @@
                   ['org.clojure/tools.nrepl "0.2.12"]
 
                   ['grimradical/clj-semver "0.3.0" :exclusions ['org.clojure/clojure]]
-                  ['im.chit/hara.class "2.2.15"]
-                  ['im.chit/hara.reflect "2.2.15"]
                   ['io.aviso/pretty "0.1.24"]
                   ['mvxcvi/whidbey "1.3.0"]
                   ['mvxcvi/puget "1.0.0"]
