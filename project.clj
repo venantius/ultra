@@ -13,7 +13,7 @@
                  [org.clojars.brenton/google-diff-match-patch "0.1"]
                  [robert/hooke "1.3.0"]
                  [venantius/glow "0.1.3"]]
-  :profiles {:dev {:dependencies [[bond "0.2.5"]]}}
+  :profiles {:dev {:dependencies [[circleci/bond "0.2.9"]]}}
   :test-selectors {:default (complement :demo)
                    :demo :demo}
   :min-lein-version "2.5.2"
