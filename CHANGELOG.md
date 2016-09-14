@@ -2,6 +2,7 @@
  * Better test reporting on logical expressions
  * Fixed a bug whereby Ultra wouldn't set the intended defaults for Whidbey
  * Removed Java utility functions.
+ * Tweaked Glow import logic so as to not import hiccup or garden for performance.
 
 ## 0.4.1
  * Fixed a bug wherein the default colorscheme was devoid of colors

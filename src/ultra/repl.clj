@@ -2,7 +2,9 @@
   (:require [clojure.main :as main]
             [clojure.repl :as repl]
             [clojure.tools.nrepl.server]
-            [glow.core :as glow]
+            [glow.terminal]
+            [glow.colorschemes]
+            [glow.parse]
             [io.aviso.repl :as pretty-repl]
             [ultra.printer :refer [cprint]]))
 
@@ -15,7 +17,9 @@
   {:added "0.2.1"}
   [n]
   `(if-let [source# (clojure.repl/source-fn '~n)]
-     (println (glow/highlight source#))
+     (println (glow.terminal/ansi-colorize
+                glow.colorschemes/terminal-default
+                (glow.parse/parse source#)))
      (println "Source not found")))
 
 (defn replace-source
@@ -27,7 +31,9 @@
   {:added "0.3.5"}
   []
   (binding [*ns* (the-ns 'clojure.repl)]
-    (require '[glow.core :as glow])
+    (require 'glow.terminal)
+    (require 'glow.colorschemes)
+    (require 'glow.parse)
     (eval (read-string (repl/source-fn 'ultra.repl/source)))))
 
 (defn add-middleware
