@@ -15,6 +15,7 @@
             [puget.color.ansi :as ansi]
             [ultra.printer :refer [cprint]])
   (:import name.fraser.neil.plaintext.diff_match_patch$Operation
+           name.fraser.neil.plaintext.diff_match_patch$Diff
            name.fraser.neil.plaintext.diff_match_patch))
 
 (def diff-markers
@@ -22,7 +23,7 @@
     diff_match_patch$Operation/INSERT (ansi/sgr "+" :green)
     diff_match_patch$Operation/DELETE (ansi/sgr "-" :red)})
 
-(defn- print-diff [d]
+(defn- print-diff [^diff_match_patch$Diff d]
   (let [m (diff-markers (.operation d)) ]
     (print (str "          " m " "))
     (cprint (s/replace (.trim (.text d))
