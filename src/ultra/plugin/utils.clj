@@ -28,9 +28,10 @@
   version is specified, returns true."
   {:added "0.4.1"}
   [project]
-  (if-let [clj (some clojure-dep? (:dependencies project))]
-    (not (semver/older? (second clj) "1.7.0"))
-    true))
+  (let [[_ clj] (some clojure-dep? (:dependencies project))]
+    (or (not clj)
+        (not (semver/valid-format? clj))
+        (not (semver/older? clj "1.7.0")))))
 
 (defn- find-plugin-version
   "Looks up the plugins in the project map and tries to find the version
