@@ -35,14 +35,17 @@
 (defn inject-repl-initialization
   "Move most configuration into REPL initialization."
   {:added "0.3.0"}
-  [project opts]
+  [project {:keys [repl] :as opts}]
   (let [whidbey-opts (:whidbey project)]
     (plugin/add-repl-init
-     project
-     `(do (require 'ultra.hardcore)
-          (require 'whidbey.repl)
-          (whidbey.repl/init! ~whidbey-opts)
-          (ultra.hardcore/configure! ~opts)))))
+      project
+      (if repl
+        `(do (require 'ultra.hardcore)
+             (require 'whidbey.repl)
+             (whidbey.repl/init! ~whidbey-opts)
+             (ultra.hardcore/configure! ~opts))
+        `(do (require 'ultra.hardcore)
+             (ultra.hardcore/configure! ~opts))))))
 
 (defn add-ultra-legacy
   "If this project doesn't support reader conditionals, inject Ultra 0.3.4 and
@@ -99,8 +102,12 @@
                               :map-delimiter ""
                               :print-fallback :print
                               :sort-keys true}
-        repl-opts (merge default-whidbey-opts
-                         (:repl (:ultra project)))
+        repl (-> project :ultra :repl)
+        repl-opts (if (false? repl)
+                    repl
+                    (if (true? repl)
+                      default-whidbey-opts
+                      (merge default-whidbey-opts repl)))
         opts (-> (:ultra project)
                  (assoc :repl repl-opts))]
     (add-ultra project opts)))
