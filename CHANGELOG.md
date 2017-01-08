@@ -1,3 +1,7 @@
+## 0.5.1
+ * Fixed a bug wherein setting `{:repl false}` would crash repl initialization
+ * Un-pinned a fixed Clojure version from the plugin by moving the Clojure dependency to the plugin's `:dev` profile.
+
 ## 0.5.0
  * Better test reporting on logical expressions
  * Fixed a bug whereby Ultra wouldn't set the intended defaults for Whidbey

@@ -15,7 +15,7 @@ I've written a blog post describing Ultra in greater depth [here](http://blog.ve
 To install Ultra, just add the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.5.0"]]}}
+{:user {:plugins [[venantius/ultra "0.5.1"]]}}
 ```
 
 ### Requirements
