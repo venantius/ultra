@@ -2,6 +2,7 @@
   (:use clojure.test)
   (:require [clojure.data :as data]
             [clojure.pprint :as pp]
+            [io.aviso.repl :as pretty-repl]
             [puget.color.ansi :as ansi]
             [ultra.test.diff :as diff]
             [ultra.test.logic :as logic]))
@@ -42,6 +43,19 @@
           (diff/prn-diffs a b actual expected))
         (diff/print-expected actual expected))
       (logic/maybe-print-values event)))
+
+  (defmethod report :error
+    [{:keys [message expected actual] :as event}]
+    (with-test-out
+      (inc-report-counter :error)
+      (println (str (ansi/sgr "\nERROR" :red) " in " (testing-vars-str event)))
+      (when (seq *testing-contexts*) (println (testing-contexts-str)))
+      (when message (println message))
+      (println "expected:" (pr-str expected))
+      (print "  actual: ")
+      (if (instance? Throwable actual)
+        (pretty-repl/pretty-print-stack-trace actual)
+        (prn actual))))
 
   (defmethod assert-expr :default [msg form]
     (cond
