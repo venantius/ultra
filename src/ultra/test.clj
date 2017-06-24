@@ -18,9 +18,10 @@
   {:added "0.3.3"}
   []
   (defmethod assert-expr '= [msg [_ a & more]]
-  `(let [a# ~a]
-     (if-let [more# (seq (list ~@more))]
-       (let [result# (apply = a# more#)]
+    (if (seq more)
+      `(let [a# ~a
+             more# (seq (list ~@more))
+             result# (apply = a# more#)]
          (if result#
            (do-report {:type :pass, :message ~msg,
                        :expected a#, :actual more#})
@@ -28,7 +29,7 @@
                        :expected a#, :actual more#,
                        :diffs (generate-diffs a# more#)}))
          result#)
-       (throw (Exception. "= expects more than one argument")))))
+      `(throw (Exception. "= expects more than one argument"))))
 
   (defmethod report :fail
     [{:keys [type expected actual diffs message] :as event}]
