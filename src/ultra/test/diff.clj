@@ -71,7 +71,8 @@
   [a b actual expected]
   (print-expected actual expected)
   (print "\n    diff:")
-  (print (str-diff/clean-difform-str a b)))
+  (print (str-diff/clean-difform-str a b))
+  (flush))
 
 (defmethod prn-diffs ::wrong-class
   [a b actual expected]
@@ -86,7 +87,8 @@
                                    (class b)))]
       (println (clojure.string/trim (indent a 10)))
       (print "     was: ")
-      (print (indent b 10)))))
+      (print (indent b 10))
+      (flush))))
 
 (defmethod prn-diffs ::diff-vecs
   [a b actual expected]
@@ -114,4 +116,5 @@
   (when b
     (print (ansi/sgr " + " :green))
     (let [b (with-out-str (cprint b))]
-      (print (indent b 12)))))
+      (print (indent b 12))))
+  (flush))
