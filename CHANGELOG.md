@@ -1,3 +1,6 @@
+## 0.5.2
+ * Changed the printing behavior of test results to flush test output at the end of the test, making output clearer in cases where multi-threaded tests print to *out*
+
 ## 0.5.1
  * Fixed a bug wherein setting `{:repl false}` would crash repl initialization
  * Un-pinned a fixed Clojure version from the plugin by moving the Clojure dependency to the plugin's `:dev` profile.
