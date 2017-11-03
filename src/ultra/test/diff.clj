@@ -114,4 +114,5 @@
   (when b
     (print (ansi/sgr " + " :green))
     (let [b (with-out-str (cprint b))]
-      (print (indent b 12)))))
+      (print (s/trimr (indent b 12)))
+      (println))))
