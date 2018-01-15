@@ -30,6 +30,10 @@ Note that versions of Ultra prior to 0.5.0 will not play nicely with current alp
 
 At the moment, Ultra doesn't have ClojureScript support at the REPL. The relevant upstream issue to track work on this is https://github.com/greglook/puget/issues/27; from there, Whidbey will need to be updated, and then Ultra will be able to consume the changes.
 
+##### CIDER Conflicts
+
+Ultra can cause CIDER to hang when evaluating tests over the nREPL connection (see https://github.com/venantius/ultra/issues/79). I don't have the necessary familiarity with CIDER to fix this issue, but Emacs/CIDER users can work around this by moving Ultra to sit as a plugin in the `:test` profile instead of having it at the root.
+
 ## Features
 For a detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki). Here's the highlight reel:
 
