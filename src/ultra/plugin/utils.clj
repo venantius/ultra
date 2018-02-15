@@ -30,8 +30,8 @@
   [project]
   (let [[_ clj] (some clojure-dep? (:dependencies project))]
     (or (not clj)
-        (not (semver/valid-format? clj))
-        (not (semver/older? clj "1.7.0")))))
+        (not (semver/valid-format? (str clj)))
+        (not (semver/older? (str clj) "1.7.0")))))
 
 (defn- find-plugin-version
   "Looks up the plugins in the project map and tries to find the version
