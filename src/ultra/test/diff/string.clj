@@ -26,7 +26,7 @@
 (defn- print-diff [^diff_match_patch$Diff d]
   (let [m (diff-markers (.operation d)) ]
     (print (str "          " m " "))
-    (cprint (s/replace (.trim (.text d))
+    (cprint (s/replace (.text d)
                         #"\n" (str "\n " m " ")))))
 
 (defn canonical-form [f]
