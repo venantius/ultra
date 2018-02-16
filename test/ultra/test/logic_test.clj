@@ -1,13 +1,13 @@
 (ns ultra.test.logic-test
   (:require
-    [clojure.test :refer :all]
-    [ultra.test.logic :as logic]))
+   [clojure.test :refer :all]
+   [ultra.test.logic :as logic]))
 
 (deftest quote-logic-test
-  (is (= 'false
+  (is (= '(quote false)
          (logic/quote-logic 'false)))
-  (is (= `(list ~''and (~'= 1 1) (list ~''and (list ~''or nil 1)))
-         (logic/quote-logic '(and (= 1 1) (and (or nil 1)))))))
+  (is (= `(list ~''and (quote (~'= 1 1)) (quote (~'list (~'and (~''or (quote nil) (quote 1))))))
+         (logic/quote-logic '(and (= 1 1) (list (and ((quote or) (quote nil) (quote 1)))))))))
 
 (deftest assert-logic-test
   (is (logic/assert-logic "literal true" true))
