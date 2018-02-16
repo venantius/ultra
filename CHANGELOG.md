@@ -1,5 +1,8 @@
-## 0.5.3
+## 0.6.0
 * Removes logical expression hints, they could cause double evaluation in test.
+ * Adds syntax-highlighting to arglists in `doc` (#39)
+ * `=` having only one argument now no longer creates problems with Eastwood (#77)
+ * Fixes a bug wherein string diffs wouldn't include whitespace (#81)
 
 ## 0.5.2
  * Changed the printing behavior of test results to flush test output at the end of the test, making output clearer in cases where multi-threaded tests print to *out*

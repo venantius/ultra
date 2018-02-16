@@ -2,8 +2,8 @@
   (:use clojure.test)
   (:require [clojure.data :as data]
             [clojure.pprint :as pp]
-            [io.aviso.repl :as pretty-repl]
             [puget.color.ansi :as ansi]
+            [pyro.printer :as stacktrace]
             [ultra.test.diff :as diff]))
 
 (defn generate-diffs
@@ -15,7 +15,7 @@
 
 (defn activate!
   {:added "0.3.3"}
-  []
+  [stacktrace-opts]
   (defmethod assert-expr '= [msg [_ a & more]]
     (if (seq more)
       `(let [a# ~a
@@ -53,5 +53,19 @@
       (println "expected:" (pr-str expected))
       (print "  actual: ")
       (if (instance? Throwable actual)
+<<<<<<< HEAD
         (pretty-repl/pretty-print-stack-trace actual)
         (prn actual)))))
+=======
+        (stacktrace/pprint-exception stacktrace-opts actual)
+        (prn actual))))
+
+  (defmethod assert-expr :default [msg form]
+    (cond
+      (and (sequential? form) (logic/logic-ops (first form)))
+      (logic/assert-logic msg form)
+      (and (sequential? form) (function? (first form)))
+      (logic/assert-predicate msg form)
+      :else
+      (assert-any msg form))))
+>>>>>>> [stacktrace] Replacing Aviso with Pyro

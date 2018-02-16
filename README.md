@@ -56,7 +56,7 @@ All of the above features are enabled by default, but can be turned off by setti
 ```clojure
 {:ultra {:repl         false
          :stacktraces  false
-         :tests        false}}}}
+         :tests        false}}
 ```
 ### REPL Configuration
 
@@ -93,6 +93,25 @@ The text placed between a map key and a collection value. The keyword :line will
 ###### `:seq-limit`
 
 If set to a positive number, then lists will only render at most the first n elements. This can help prevent unintentional realization of infinite lazy sequences.
+
+### Stacktrace Configuration
+
+As of version `0.6.0`, Ultra uses [Pyro](https://github.com/venantius/pyro) as a stacktrace engine. This means that arguments to Pyro's configuration are passed straight along.
+
+Note that Pyro is still relatively new and this API is liable to change.
+
+```clojure
+{:ultra {:stacktraces {:show-source true
+                       :drop-nrepl-elements true
+                       :hide-clojure-elements true
+                       :hide-lein-elements true}}}
+```
+
+###### `:show-source`
+
+###### `:drop-nrepl-elements`
+
+###### `:hide-clojure-elements`
 
 ## Contributing
 
