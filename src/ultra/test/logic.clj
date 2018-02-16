@@ -13,7 +13,7 @@
   [form]
   (if (and (seq? form) (logic-ops (first form)))
     `(list '~(first form) ~@(map quote-logic (rest form)))
-    (list 'quote form)))
+    form))
 
 (defn assert-logic
   "Preserves useful information in the :with-values key of the test."
@@ -21,11 +21,11 @@
   [msg form]
   `(let [result# ~form]
      (test/do-report
-      {:type (if result# :pass :fail)
-       :message ~msg
-       :expected '~form
-       :actual result#
-       :with-values ~(quote-logic form)})
+       {:type (if result# :pass :fail)
+        :message ~msg
+        :expected '~form
+        :actual result#
+        :with-values ~(quote-logic form)})
      result#))
 
 (defn assert-predicate
@@ -38,12 +38,12 @@
            result# (apply ~pred values#)
            hint# (cons '~pred values#)]
        (test/do-report
-        {:type (if result# :pass :fail)
-         :message ~msg
-         :expected '~form
-         :actual result#
-         :with-values (when (not= '~form hint#)
-                        hint#)})
+         {:type (if result# :pass :fail)
+          :message ~msg
+          :expected '~form
+          :actual result#
+          :with-values (when (not= '~form hint#)
+                         hint#)})
        result#)))
 
 (defn maybe-print-values
@@ -52,5 +52,5 @@
   [{:keys [with-values]}]
   (when with-values
     (println
-     "\n  values:"
-     (pretty with-values))))
+      "\n  values:"
+      (pretty with-values))))
