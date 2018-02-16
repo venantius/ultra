@@ -6,6 +6,7 @@
             [glow.colorschemes]
             [glow.parse]
             [io.aviso.repl :as pretty-repl]
+            [puget.color.ansi :as ansi]
             [ultra.printer :refer [cprint]]))
 
 (defmacro source
@@ -18,8 +19,8 @@
   [n]
   `(if-let [source# (clojure.repl/source-fn '~n)]
      (println (glow.terminal/ansi-colorize
-                glow.colorschemes/terminal-default
-                (glow.parse/parse source#)))
+               glow.colorschemes/terminal-default
+               (glow.parse/parse source#)))
      (println "Source not found")))
 
 (defn replace-source
@@ -36,8 +37,51 @@
     (require 'glow.parse)
     (eval (read-string (repl/source-fn 'ultra.repl/source)))))
 
+(def doc-colorscheme
+  (assoc glow.colorschemes/terminal-default
+         :variable :default
+         :core-fn :default))
+
+(defn syntax-println
+  "Print the input data structure as a syntax-highlighted string."
+  [arglists]
+  (println
+   (glow.terminal/ansi-colorize
+    doc-colorscheme
+    (glow.parse/parse (str arglists)))))
+
+(defn print-doc
+  "Replaces clojure.repl/print-doc."
+  [{:keys [arglists doc forms ns name url] :as m}]
+  (println "-------------------------")
+  (println (str (when ns (str (ns-name ns) "/")) name))
+  (cond
+    forms (doseq [f forms]
+            (print "  ")
+            (syntax-println f))
+    arglists (syntax-println arglists))
+  (if (:special-form m)
+    (do
+      (println "Special Form")
+      (println " " doc)
+      (if (contains? m :url)
+        (when url
+          (println (str "\n  Please see http://clojure.org/" url)))
+        (println (str "\n  Please see http://clojure.org/special_forms#"
+                      name))))
+    (do
+      (when (:macro m)
+        (println "Macro"))
+      (println " " doc))))
+
+(defn replace-doc
+  "Replace `print-doc` in `clojure.repl` to syntax-highlight arglists."
+  {:added "0.5.3"}
+  []
+  (alter-var-root #'clojure.repl/print-doc (constantly ultra.repl/print-doc)))
+
 (defn add-middleware
-  "Alter the default handler to include the provided middleware"
+  "Alter the default handler to include the provided middleware."
   {:added "0.1.0"}
   [middleware]
   (alter-var-root
@@ -65,6 +109,7 @@
     (require 'whidbey.repl)
     (eval '(ultra.repl.whidbey/add-whidbey-middleware))
     (eval `(whidbey.repl/update-options! ~repl))
-    (replace-source))
+    (replace-source)
+    (replace-doc))
   (when (not (false? stacktraces))
     (add-pretty-middleware)))
