@@ -1,31 +1,40 @@
 (ns ultra.test.logic
   (:require [clojure.test :as test]
-            [clojure.string :as s]
             [ultra.printer :refer [cprint]]
             [ultra.test.diff :refer [pretty]]))
 
 (def logic-ops
   #{'not 'and 'or})
 
+(defn take-to-first-true
+  ([xs]
+    (take-to-first-true [] xs))
+  ([falsies [x & more]]
+    (if x
+      (conj falsies x)
+      (recur (conj falsies x) more))))
+
 (defn quote-logic
   "Preserves logic expressions to assist debugging."
   {:added "0.4.2"}
   [form]
   (if (and (seq? form) (logic-ops (first form)))
-    `(list '~(first form) ~@(map quote-logic (rest form)))
+    `(list '~(first form)
+           ~@(cond->> (map quote-logic (rest form))
+                      (= (first form) 'or) (take-to-first-true)))
     form))
 
 (defn assert-logic
   "Preserves useful information in the :with-values key of the test."
   {:added "0.4.2"}
   [msg form]
-  `(let [result# ~form]
+  `(let [result# ~(quote-logic form)]
      (test/do-report
        {:type (if result# :pass :fail)
         :message ~msg
         :expected '~form
         :actual result#
-        :with-values ~(quote-logic form)})
+        :with-values result#})
      result#))
 
 (defn assert-predicate
