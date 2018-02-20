@@ -25,7 +25,9 @@
         :message ~msg
         :expected '~form
         :actual result#
-        :with-values ~(quote-logic form)})
+        ;; See issue #83
+        ;; :with-values ~(quote-logic form)
+        })
      result#))
 
 (defn assert-predicate

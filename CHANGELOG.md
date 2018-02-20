@@ -1,3 +1,7 @@
+## 0.5.3
+* Prevent tests with logic expressions from doing extra evaluation.
+* Disables test logic hints temporarily.
+
 ## 0.5.2
  * Changed the printing behavior of test results to flush test output at the end of the test, making output clearer in cases where multi-threaded tests print to *out*
 
