@@ -12,15 +12,3 @@
                      :well-how-about-some-more?
                      :howd-you-like-them-apples!]]
     (is (every? (set (keys {:a 1 :b 5})) long-vector))))
-
-(deftest logical-expressions-are-preserved
-  (let [pirate {:name "Edward Teach"
-                :nickname "Blackbeard"
-                :rating :notorious}]
-    (is (and (:name pirate)
-             (or (empty? pirate) (:age pirate))))
-    (is (not (= (:rating pirate) :notorious)))))
-
-(deftest predicate-values-are-shown-when-appropriate
-  (is (odd? 2))
-  (is (odd? (+ 1 (inc 0)))))

@@ -4,8 +4,7 @@
             [clojure.pprint :as pp]
             [io.aviso.repl :as pretty-repl]
             [puget.color.ansi :as ansi]
-            [ultra.test.diff :as diff]
-            [ultra.test.logic :as logic]))
+            [ultra.test.diff :as diff]))
 
 (defn generate-diffs
   [a more]
@@ -42,8 +41,7 @@
         (doseq [[actual [a b]] diffs
                 :when (or a b)]
           (diff/prn-diffs a b actual expected))
-        (diff/print-expected actual expected))
-      (logic/maybe-print-values event)))
+        (diff/print-expected actual expected))))
 
   (defmethod report :error
     [{:keys [message expected actual] :as event}]
@@ -56,13 +54,4 @@
       (print "  actual: ")
       (if (instance? Throwable actual)
         (pretty-repl/pretty-print-stack-trace actual)
-        (prn actual))))
-
-  (defmethod assert-expr :default [msg form]
-    (cond
-      (and (sequential? form) (logic/logic-ops (first form)))
-      (logic/assert-logic msg form)
-      (and (sequential? form) (function? (first form)))
-      (logic/assert-predicate msg form)
-      :else
-      (assert-any msg form))))
+        (prn actual)))))
