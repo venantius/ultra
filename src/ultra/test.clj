@@ -53,19 +53,5 @@
       (println "expected:" (pr-str expected))
       (print "  actual: ")
       (if (instance? Throwable actual)
-<<<<<<< HEAD
-        (pretty-repl/pretty-print-stack-trace actual)
-        (prn actual)))))
-=======
         (stacktrace/pprint-exception stacktrace-opts actual)
-        (prn actual))))
-
-  (defmethod assert-expr :default [msg form]
-    (cond
-      (and (sequential? form) (logic/logic-ops (first form)))
-      (logic/assert-logic msg form)
-      (and (sequential? form) (function? (first form)))
-      (logic/assert-predicate msg form)
-      :else
-      (assert-any msg form))))
->>>>>>> [stacktrace] Replacing Aviso with Pyro
+        (prn actual)))))
