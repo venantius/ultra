@@ -1,5 +1,0 @@
-language: clojure
-notifications:
-  email: false
-script: 
-  - lein test
