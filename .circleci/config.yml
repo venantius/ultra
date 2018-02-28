@@ -1,9 +1,8 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/cci-demo-clojure
     docker:
-      - image: circleci/clojure:lein-2.7.1
+      - image: circleci/clojure:lein-2.8.1
     environment:
       LEIN_ROOT: nbd
       JVM_OPTS: -Xmx3200m
