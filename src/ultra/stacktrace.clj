@@ -10,6 +10,7 @@
   {:added "0.1.1"
    :updated "0.5.3"}
   [opts]
+  (reset! printer/options opts)
   (alter-var-root
    #'st/print-stack-trace
    (constantly (partial printer/pprint-exception {})))

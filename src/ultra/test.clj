@@ -53,5 +53,5 @@
       (println "expected:" (pr-str expected))
       (print "  actual: ")
       (if (instance? Throwable actual)
-        (stacktrace/pprint-exception stacktrace-opts actual)
+        (stacktrace/pprint-exception actual)
         (prn actual)))))

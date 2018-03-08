@@ -108,13 +108,14 @@
                               :map-delimiter ""
                               :print-fallback :print
                               :sort-keys true}
-        repl (-> project :ultra :repl)
+        {:keys [repl stacktraces tests]} (-> project :ultra)
         repl-opts (if (false? repl)
                     repl
                     (if (true? repl)
                       default-whidbey-opts
                       (merge default-whidbey-opts repl)))
         opts (-> default-opts
-                 (merge (:ultra project))
+                 (assoc :tests tests)
+                 (update :stacktraces merge stacktraces)
                  (assoc :repl repl-opts))]
     (add-ultra project opts)))
