@@ -9,6 +9,8 @@ Ultra is a Leiningen plugin for an absolutely kick-ass development environment.
 
 I've written a blog post describing Ultra in greater depth [here](http://blog.venanti.us/ultra).
 
+Ultra is the rare piece of essentially "finished" software. I've ironed out most of the bugs, and don't plan on adding much in the future. In other words: it's not unmaintained, it's just done.
+
 ## Installation
 
 To install Ultra, just add the following to your `~/.lein/profiles.clj`
