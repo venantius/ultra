@@ -124,6 +124,6 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
 
 ## License
 
-In some cases, I've borrowed code snippets from libraries above and re-written them. Where that is the case, the Copyright of the original author[s] remains in effect. Any modifications to their code, as well as all original content, is Copyright © 2016 W. David Jarvis.
+In some cases, I've borrowed code snippets from libraries above and re-written them. Where that is the case, the Copyright of the original author[s] remains in effect. Any modifications to their code, as well as all original content, is Copyright © 2018 W. David Jarvis.
 
 Distributed under the Eclipse Public License 1.0, the same as Clojure.
