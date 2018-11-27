@@ -28,13 +28,9 @@ JDK 8
 
 Note that versions of Ultra prior to 0.5.0 will not play nicely with current alpha releases of Clojure 1.9 (and therefore are unlikely to play nicely with Clojure 1.9 when it is finally released).
 
-#### ClojureScript Support
+### ClojureScript Support
 
 At the moment, Ultra doesn't have ClojureScript support at the REPL. The relevant upstream issue to track work on this is https://github.com/greglook/puget/issues/27; from there, Whidbey will need to be updated, and then Ultra will be able to consume the changes.
-
-##### CIDER Conflicts
-
-Ultra can cause CIDER to hang when evaluating tests over the nREPL connection (see https://github.com/venantius/ultra/issues/79). I don't have the necessary familiarity with CIDER to fix this issue, but Emacs/CIDER users can work around this by moving Ultra to sit as a plugin in the `:test` profile instead of having it at the root.
 
 ## Features
 For a detailed list of features, check out the [wiki](https://github.com/venantius/ultra/wiki). Here's the highlight reel:
@@ -95,6 +91,30 @@ The text placed between a map key and a collection value. The keyword :line will
 ###### `:seq-limit`
 
 If set to a positive number, then lists will only render at most the first n elements. This can help prevent unintentional realization of infinite lazy sequences.
+
+### Using CIDER alongside Ultra
+
+Projects which extend the Clojure REPL will conflict with each other; a middleware which modifies REPL print output will break the assumption of another middleware expecting unmodified Clojure output. Specifically, Ultra and CIDER collide on certain test result values ([#79](https://github.com/venantius/ultra/issues/79)).
+
+Use either CIDER or Ultra, but not both. Configure `cider-jack-in` to skip the Leiningen user profile, and therefore skip using Ultra, in .emacs:
+
+```emacs
+; Skip :user section of ~/.lein/profiles.clj when using cider-jack-in.
+(setq cider-lein-parameters
+      "with-profile -user repl :headless :host localhost")
+```
+
+If you have a lein user profile intended to alter CIDER's behavior, consider these options:
+
+1. Declare a separate [profile](https://github.com/technomancy/leiningen/blob/master/doc/PROFILES.md) and name it in `with-profile -user,YOURPROFILE` in the Emacs `cider-lein-parameters` variable.
+2. Configure CIDER's `cider-jack-in-lein-plugins` variable.
+
+CIDER added variables:
+
+* `cider-lein-parameters` in CIDER v0.7.0
+* `cider-jack-in-lein-plugins` in CIDER v0.11.0
+
+Running project tests may cause the CIDER REPL to hang ([#79](https://github.com/venantius/ultra/issues/79)) when using `cider-connect` (as opposed to `cider-jack-in`) with an existing `lein repl` which is running Ultra.
 
 ## Contributing
 
