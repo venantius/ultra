@@ -16,16 +16,16 @@
 (defmacro configure-stacktraces!
   "Dynamically import ultra's stacktrace namespace and configure them."
   {:added "0.3.0"}
-  []
+  [opts]
   `(do ~(require 'ultra.stacktrace)
-       (ultra.stacktrace/configure-stacktraces!)))
+       (ultra.stacktrace/configure-stacktraces! ~opts)))
 
 (defmacro configure-tests!
   "Dyanmically import ultra's test namespace and configure them."
   {:added "0.3.0"}
-  []
+  [stacktraces]
   `(do ~(require 'ultra.test)
-       (ultra.test/activate!)))
+       (ultra.test/activate! ~stacktraces)))
 
 (defmacro set-colorscheme!
   "Dynamically import ultra's colorscheme namespace and configures it."
@@ -44,9 +44,9 @@
   (when (not (false? repl))
     (eval `(configure-repl! ~repl ~stacktraces)))
   (when (not (false? stacktraces))
-    (eval `(configure-stacktraces!)))
+    (eval `(configure-stacktraces! ~stacktraces)))
   (when (not (false? tests))
-    (eval `(configure-tests!))))
+    (eval `(configure-tests! ~stacktraces))))
 
 (defn configure!
   "Only run the configuration step once."

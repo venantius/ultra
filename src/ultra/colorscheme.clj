@@ -1,7 +1,6 @@
 (ns ultra.colorscheme
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [io.aviso.exception]
             [puget.color.ansi :as ansi]
             [whidbey.repl]))
 
@@ -31,29 +30,6 @@
     (eval (symbol "io.aviso.ansi" (str (name k) "-font")))
     (ansi/escape :none)))
 
-(defn set-pretty-colors
-  "Set the color palette for pretty (which handles exceptions)."
-  [color-scheme]
-  (alter-var-root
-    #'io.aviso.exception/*fonts*
-    merge
-    {:clojure-frame (ansi-vec->pretty-str
-                     (:symbol color-scheme))
-     :exception (ansi-vec->pretty-str
-                 (:exception color-scheme))
-     :function-name (ansi-vec->pretty-str
-                     (:function-symbol color-scheme))
-     :java-frame (ansi-vec->pretty-str
-                   (:symbol color-scheme))
-     :message (ansi-vec->pretty-str nil)
-     :omitted-frame (ansi-vec->pretty-str
-                      (:symbol color-scheme))
-     :property (ansi-vec->pretty-str
-                 (:number color-scheme))
-     :reset (ansi-vec->pretty-str nil)
-     :source (ansi-vec->pretty-str
-               (:string color-scheme))}))
-
 (defn set-colorscheme
   [{:keys [color-scheme] :as opts}]
   (let [color-scheme (if (map? color-scheme)
@@ -62,5 +38,4 @@
     (alter-var-root
       #'whidbey.repl/printer
       merge
-      {:color-scheme color-scheme})
-    (set-pretty-colors color-scheme)))
+      {:color-scheme color-scheme})))

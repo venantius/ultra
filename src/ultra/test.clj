@@ -2,8 +2,8 @@
   (:use clojure.test)
   (:require [clojure.data :as data]
             [clojure.pprint :as pp]
-            [io.aviso.repl :as pretty-repl]
             [puget.color.ansi :as ansi]
+            [pyro.printer :as stacktrace]
             [ultra.test.diff :as diff]))
 
 (defn generate-diffs
@@ -15,7 +15,7 @@
 
 (defn activate!
   {:added "0.3.3"}
-  []
+  [stacktrace-opts]
   (defmethod assert-expr '= [msg [_ a & more]]
     (if (seq more)
       `(let [a# ~a
@@ -53,5 +53,5 @@
       (println "expected:" (pr-str expected))
       (print "  actual: ")
       (if (instance? Throwable actual)
-        (pretty-repl/pretty-print-stack-trace actual)
+        (stacktrace/pprint-exception actual)
         (prn actual)))))
