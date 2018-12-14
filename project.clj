@@ -7,7 +7,7 @@
                  [grimradical/clj-semver "0.3.0" :exclusions [org.clojure/clojure]]
                  [io.aviso/pretty "0.1.35"]
                  [mvxcvi/whidbey "1.3.2"]
-                 [mvxcvi/puget "1.0.3"]
+                 [mvxcvi/puget "1.1.0"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]
                  [robert/hooke "1.3.0"]
                  [venantius/glow "0.1.5" :exclusions [hiccup garden]]]
