@@ -1,3 +1,6 @@
+## 0.6.0
+ * Migrates to `nrepl` from `clojure.tools.nrepl`
+
 ## 0.5.4
  * Bump puget dependency. AFAIK this makes us compatible with the new nREPL.
 
@@ -42,7 +45,7 @@
  * Remove an embarrassing println statement
 
 ## 0.3.1
- * Fix test initialization to be an injection that triggers a hook. 
+ * Fix test initialization to be an injection that triggers a hook.
 
 ## 0.3.0
  * Avoids initialization of unused features.
@@ -55,7 +58,7 @@
  * Modifies the loading of the nREPL middleware to play nicely with CIDER.
 
 ## 0.2.0
- * Moves Java function injection to be a hook sitting on clojure.tools.nrepl.server/start-server, which is a total hack but it seems to actually work, unlike literally everything else I've tried. 
+ * Moves Java function injection to be a hook sitting on clojure.tools.nrepl.server/start-server, which is a total hack but it seems to actually work, unlike literally everything else I've tried.
  * Removes Vinyasa dependency.
  * Moving test activation from a defonce, which seemed to screw up Kibit.
  * General cleanup and refactoring.

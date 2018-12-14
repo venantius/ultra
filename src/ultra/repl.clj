@@ -1,13 +1,21 @@
 (ns ultra.repl
   (:require [clojure.main :as main]
             [clojure.repl :as repl]
-            [clojure.tools.nrepl.server]
             [glow.terminal]
             [glow.colorschemes]
             [glow.parse]
             [io.aviso.repl :as pretty-repl]
             [puget.color.ansi :as ansi]
             [ultra.printer :refer [cprint]]))
+
+;; Compatibility with the legacy tools.nrepl and the new nREPL 0.4.x.
+;; The assumption is that if someone is using old lein repl or boot repl
+;; they'll end up using the tools.nrepl, otherwise the modern one.
+(if (find-ns 'clojure.tools.nrepl)
+  (require
+   '[clojure.tools.nrepl.server :as nrepl-server])
+  (require
+   '[nrepl.server :as nrepl-server]))
 
 (defmacro source
   "Prints the source code for the given symbol, if it can find it.
@@ -84,10 +92,18 @@
   "Alter the default handler to include the provided middleware."
   {:added "0.1.0"}
   [middleware]
-  (alter-var-root
-   #'clojure.tools.nrepl.server/default-handler
-   partial
-   middleware))
+  ;; Compatibility with the legacy tools.nrepl and the new nREPL 0.4.x.
+  ;; The assumption is that if someone is using old lein repl or boot repl
+  ;; they'll end up using the tools.nrepl, otherwise the modern one.
+  (if (find-ns 'clojure.tools.nrepl)
+    (alter-var-root
+     #'clojure.tools.nrepl.server/default-handler
+     partial
+     middleware)
+    (alter-var-root
+     #'nrepl.server/default-handler
+     partial
+     middleware)))
 
 (defn add-pretty-middleware
   "Add Aviso's Pretty functionality"

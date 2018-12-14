@@ -1,8 +1,14 @@
 (ns ultra.hardcore
   "See what I did there?"
-  (:require [clojure.tools.nrepl.server]
-            [ultra.colorscheme :as colorscheme]
+  (:require [ultra.colorscheme :as colorscheme]
             [robert.hooke :refer [add-hook]]))
+
+;; For reasons that aren't totally clear to me, we need this import to find clojure.test?
+(if (find-ns 'clojure.tools.nrepl)
+  (require
+   '[clojure.tools.nrepl.server :as nrepl-server])
+  (require
+   '[nrepl.server :as nrepl-server]))
 
 (def configured? (atom {}))
 
