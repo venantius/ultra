@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[nrepl "0.6.0"]
                  [grimradical/clj-semver "0.3.0" :exclusions [org.clojure/clojure]]
-                 [io.aviso/pretty "0.1.37"]
+                 [venantius/pyro "0.1.2"]
                  [mvxcvi/whidbey "2.0.0"]
                  [mvxcvi/puget "1.1.0"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]

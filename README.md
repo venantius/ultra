@@ -55,7 +55,7 @@ All of the above features are enabled by default, but can be turned off by setti
 ```clojure
 {:ultra {:repl         false
          :stacktraces  false
-         :tests        false}}}}
+         :tests        false}}
 ```
 ### REPL Configuration
 
@@ -69,29 +69,22 @@ Ultra uses [Whidbey](https://github.com/greglook/whidbey) as its pretty-printing
                  ...}}}
 ```
 
-###### `:width`
+Additional documentation on individual configuration flags can be found [here](./doc/repl.md).
 
-Number of characters to try to wrap pretty-printed forms at.
+### Stacktrace Configuration
 
-###### `:print-meta`
+As of version `0.6.0`, Ultra uses [Pyro](https://github.com/venantius/pyro) as a stacktrace engine. This means that arguments to Pyro's configuration are passed straight along.
 
-If true, metadata will be printed before values.
+Note that Pyro is still relatively new and this API is liable to change.
 
-###### `:sort-keys`
+```clojure
+{:ultra {:stacktraces {:show-source true
+                       :drop-nrepl-elements true
+                       :hide-clojure-elements true
+                       :hide-lein-elements true}}}
+```
 
-Print maps and sets with ordered keys. Defaults to true, which will sort all collections. If a number, counted collections will be sorted up to the set size. Otherwise, collections are not sorted before printing.
-
-###### `:map-delimiter`
-
-The text placed between key-value pairs in a map.
-
-###### `:map-coll-separator`
-
-The text placed between a map key and a collection value. The keyword :line will cause line breaks if the whole map does not fit on a single line.
-
-###### `:seq-limit`
-
-If set to a positive number, then lists will only render at most the first n elements. This can help prevent unintentional realization of infinite lazy sequences.
+Additional documentation on individual configuration flags can be found [here](./doc/stacktraces.md).
 
 ### Using CIDER alongside Ultra
 

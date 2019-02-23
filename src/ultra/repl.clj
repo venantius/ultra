@@ -5,8 +5,8 @@
             [glow.terminal]
             [glow.colorschemes]
             [glow.parse]
-            [io.aviso.repl :as pretty-repl]
             [puget.color.ansi :as ansi]
+            [pyro.printer :as stacktrace]
             [ultra.printer :refer [cprint]]))
 
 (defmacro source
@@ -89,16 +89,16 @@
      partial
      middleware))
 
-(defn add-pretty-middleware
-  "Add Aviso's Pretty functionality"
-  {:added "0.1.2"}
-  []
+(defn add-pyro-pretty-printing
+  "Add Pyro's pretty printed stacktraces"
+  {:added "0.6.0"}
+  [opts]
   (alter-var-root
    #'main/repl-caught
-   (constantly pretty-repl/pretty-repl-caught))
+   (constantly (partial stacktrace/pprint-exception opts)))
   (alter-var-root
    #'repl/pst
-   (constantly pretty-repl/pretty-pst)))
+   (constantly (partial stacktrace/pprint-exception opts))))
 
 (defn configure-repl!
   "Was the fn name not clear enough?"
@@ -110,4 +110,4 @@
     (replace-source)
     (replace-doc))
   (when (not (false? stacktraces))
-    (add-pretty-middleware)))
+    (add-pyro-pretty-printing stacktraces)))

@@ -30,14 +30,14 @@
   [project {:keys [repl] :as opts}]
   (let [whidbey-opts (:whidbey project)]
     (plugin/add-repl-init
-      project
-      (if repl
-        `(do (require 'ultra.hardcore)
-             (require 'whidbey.repl)
-             (whidbey.repl/init! ~whidbey-opts)
-             (ultra.hardcore/configure! ~opts))
-        `(do (require 'ultra.hardcore)
-             (ultra.hardcore/configure! ~opts))))))
+     project
+     (if repl
+       `(do (require 'ultra.hardcore)
+            (require 'whidbey.repl)
+            (whidbey.repl/init! ~whidbey-opts)
+            (ultra.hardcore/configure! ~opts))
+       `(do (require 'ultra.hardcore)
+            (ultra.hardcore/configure! ~opts))))))
 
 (defn add-ultra-legacy
   "If this project doesn't support reader conditionals, inject Ultra 0.3.4 and
@@ -86,6 +86,12 @@
     (-> project
         (add-ultra-legacy opts))))
 
+(def default-opts
+  {:stacktraces {:show-source true
+                 :drop-nrepl-elements true
+                 :hide-clojure-elements true
+                 :hide-lein-elements true}})
+
 (defn middleware
   "Ultra's middleware re-writes the project map."
   {:added "0.1.0"}
@@ -94,12 +100,14 @@
                               :map-delimiter ""
                               :print-fallback :print
                               :sort-keys true}
-        repl (-> project :ultra :repl)
+        {:keys [repl stacktraces tests]} (-> project :ultra)
         repl-opts (if (false? repl)
                     repl
                     (if (true? repl)
                       default-whidbey-opts
                       (merge default-whidbey-opts repl)))
-        opts (-> (:ultra project)
+        opts (-> default-opts
+                 (assoc :tests tests)
+                 (update :stacktraces merge stacktraces)
                  (assoc :repl repl-opts))]
     (add-ultra project opts)))
