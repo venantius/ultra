@@ -16,7 +16,8 @@ Ultra is the rare piece of essentially "finished" software. I've ironed out most
 To install Ultra, just add the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.5.4"]]}}
+{:user {:plugins [[venantius/ultra "0.5.4"]]
+        :middleware [ultra.plugin/middleware]}}
 ```
 
 ### Requirements

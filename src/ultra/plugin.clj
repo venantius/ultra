@@ -11,11 +11,7 @@
   {:added "0.2.0"}
   [project {:keys [repl] :as opts}]
   (if (not (false? repl))
-    (-> project
-        (plugin/set-interactive-eval-renderer
-         'whidbey.repl/render-str)
-        (plugin/add-nrepl-middleware
-         `clojure.tools.nrepl.middleware.render-values/render-values))
+    (whidbey.plugin/repl-pprint project)
     project))
 
 (defn add-legacy-repl-middleware
@@ -25,11 +21,7 @@
   {:added "0.4.1"}
   [project {:keys [repl] :as opts}]
   (if (not (false? repl))
-    (-> project
-        (plugin/set-interactive-eval-renderer
-         'whidbey.render/render-str)
-        (plugin/add-nrepl-middleware
-         `clojure.tools.nrepl.middleware.render-values/render-values))
+    (whidbey.plugin/repl-pprint project)
     project))
 
 (defn inject-repl-initialization
