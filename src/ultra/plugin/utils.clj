@@ -72,12 +72,17 @@
   form is executed."
   {:added "0.3.3"}
   [project & forms]
-  (update-in project
-             [:repl-options :init]
-             (fn [current]
-               (if current
-                 `(do ~current ~@forms)
-                 `(do ~@forms)))))
+  (-> project
+      (update-in [:repl-options :init]
+                 (fn [current]
+                   (if current
+                     `(do ~current ~@forms)
+                     `(do ~@forms))))
+      (update-in [:repl-options :custom-init]
+                 (fn [current]
+                   (if current
+                     `(do ~current ~@forms)
+                     `(do ~@forms))))))
 
 (defn add-nrepl-middleware
   "Adds the middleware identified by the given symbol to the *front* of the

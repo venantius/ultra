@@ -11,7 +11,9 @@
   {:added "0.2.0"}
   [project {:keys [repl] :as opts}]
   (if (not (false? repl))
-    (whidbey.plugin/repl-pprint project)
+    (-> project
+        (plugin/set-interactive-eval-renderer 'whidbey.repl/render-str)
+        (whidbey.plugin/repl-pprint))
     project))
 
 (defn add-legacy-repl-middleware
@@ -21,7 +23,9 @@
   {:added "0.4.1"}
   [project {:keys [repl] :as opts}]
   (if (not (false? repl))
-    (whidbey.plugin/repl-pprint project)
+    (-> project
+        (plugin/set-interactive-eval-renderer 'whidbey.repl/render-str)
+        (whidbey.plugin/repl-pprint))
     project))
 
 (defn inject-repl-initialization
@@ -34,7 +38,7 @@
       (if repl
         `(do (require 'ultra.hardcore)
              (require 'whidbey.repl)
-             (whidbey.repl/init! ~whidbey-opts)
+             (whidbey.repl/update-options! ~whidbey-opts)
              (ultra.hardcore/configure! ~opts))
         `(do (require 'ultra.hardcore)
              (ultra.hardcore/configure! ~opts))))))
