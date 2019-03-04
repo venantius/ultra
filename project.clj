@@ -6,7 +6,7 @@
   :dependencies [[nrepl "0.6.0"]
                  [grimradical/clj-semver "0.3.0" :exclusions [org.clojure/clojure]]
                  [io.aviso/pretty "0.1.37"]
-                 #_[mvxcvi/whidbey "2.0.1-SNAPSHOT"] [johannesloetzsch/whidbey "2.0.1-SNAPSHOT"]  ;; not yet released by mvxcvi
+                 [mvxcvi/whidbey "2.1.0"]
                  [mvxcvi/puget "1.1.0"]
                  [org.clojars.brenton/google-diff-match-patch "0.1"]
                  [robert/hooke "1.3.0"]

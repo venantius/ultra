@@ -1,6 +1,6 @@
 ## 0.6.0
  * Migrates to `nrepl 0.6.0` from `clojure.tools.nrepl`
- * Updated to `whidbey 2.0.0`
+ * Updated to `whidbey 2.1.0`
 
 ## 0.5.4
  * Bump puget dependency. AFAIK this makes us compatible with the new nREPL.
