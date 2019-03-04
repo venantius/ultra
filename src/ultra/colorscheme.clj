@@ -59,8 +59,5 @@
   (let [color-scheme (if (map? color-scheme)
                      color-scheme
                      (load-colorscheme color-scheme))]
-    (alter-var-root
-      #'whidbey.repl/printer
-      merge
-      {:color-scheme color-scheme})
+    (whidbey.repl/update-options! {:color-scheme color-scheme})
     (set-pretty-colors color-scheme)))

@@ -96,10 +96,10 @@
   ;; The assumption is that if someone is using old lein repl or boot repl
   ;; they'll end up using the tools.nrepl, otherwise the modern one.
   (if (find-ns 'clojure.tools.nrepl)
-    (alter-var-root
-     #'clojure.tools.nrepl.server/default-handler
-     partial
-     middleware)
+    (eval `(alter-var-root
+            #'clojure.tools.nrepl.server/default-handler
+            partial
+            middleware))
     (alter-var-root
      #'nrepl.server/default-handler
      partial
@@ -121,9 +121,8 @@
   {:added "0.1.0"}
   [repl stacktraces]
   (when (not (false? repl))
-    (require 'ultra.repl.whidbey)
     (require 'whidbey.repl)
-    (eval '(ultra.repl.whidbey/add-whidbey-middleware))
+    (eval '(whidbey.repl/init! {}))
     (eval `(whidbey.repl/update-options! ~repl))
     (replace-source)
     (replace-doc))
