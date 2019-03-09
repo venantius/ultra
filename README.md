@@ -1,6 +1,6 @@
 # Ultra
 
-[![CircleCI](https://circleci.com/gh/venantius/ultra.svg?style=svg)](https://circleci.com/gh/venantius/ultra)
+[![CircleCI](https://circleci.com/gh/venantius/ultra.svg?style=svg)](https://circleci.com/gh/venantius/ultra)  
 Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin for an absolutely kick-ass development environment.
