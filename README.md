@@ -1,8 +1,6 @@
 # Ultra
 
 [![CircleCI](https://circleci.com/gh/venantius/ultra.svg?style=svg)](https://circleci.com/gh/venantius/ultra)
-[![Join the chat at https://gitter.im/venantius/ultra](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/venantius/ultra?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 Hey, you know who has two thumbs and strong opinions? That's right, it's me.
 
 Ultra is a Leiningen plugin for an absolutely kick-ass development environment.
@@ -16,17 +14,16 @@ Ultra is the rare piece of essentially "finished" software. I've ironed out most
 To install Ultra, just add the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.5.4"]]}}
+{:user {:plugins [[venantius/ultra "0.6.0-SNAPSHOT"]]}}
 ```
 
 ### Requirements
 
-As of Ultra `0.4.0`, Clojure 1.7.x is required due to reader conditional usage in Ultra's dependencies. Ultra `0.3.4` is the last version supporting Clojure 1.6.x. Ultra `0.4.1`+ will intelligently fall back to Ultra `0.3.4` if it detects a Clojure version that is below `1.7.0`.
-
-Leiningen version 2.5.2+  
+Lein 2.9.0
 JDK 8
+Clojure 1.7+
 
-Note that versions of Ultra prior to 0.5.0 will not play nicely with current alpha releases of Clojure 1.9 (and therefore are unlikely to play nicely with Clojure 1.9 when it is finally released).
+If you want to use something older, see [LEGACY_SUPPORT.md](./LEGACY_SUPPORT.md)
 
 ### ClojureScript Support
 
@@ -54,7 +51,7 @@ All of the above features are enabled by default, but can be turned off by setti
 ```clojure
 {:ultra {:repl         false
          :stacktraces  false
-         :tests        false}}}}
+         :tests        false}}
 ```
 ### REPL Configuration
 

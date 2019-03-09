@@ -54,6 +54,11 @@
    (or (find-plugin-version project plugin)
        "RELEASE")))
 
+(defn add-middleware
+  "Adds middleware to the end of the current vector."
+  [project & middleware]
+  (update-in project [:middleware] (comp #(into [] %) concat) middleware))
+
 (defn add-plugins
   "Adds plugins to the end of the current vector."
   {:added "0.3.3"}
@@ -79,6 +84,8 @@
                  `(do ~current ~@forms)
                  `(do ~@forms)))))
 
+
+;; DEPRECATED
 (defn add-nrepl-middleware
   "Adds the middleware identified by the given symbol to the *front* of the
   current nrepl-middleware list in the project map."
@@ -87,6 +94,19 @@
   (update-in project
              [:repl-options :nrepl-middleware]
              #(into [sym] %)))
+
+(defn add-nrepl-context
+  "Adds the middleware identified by the given symbol to the *front* of the
+  current nrepl-middleware list in the project map."
+  {:added "0.6.0"}
+  [project sym]
+  (assoc-in project
+            [:repl-options :nrepl-context]
+            {:interactive-eval {:printer sym}
+             :init (do (require 'whidbey.repl)
+(whidbey.repl/init! {}))}
+            ))
+
 
 (defn set-interactive-eval-renderer
   "Sets the nrepl renderer for the interactive-eval context to the function
