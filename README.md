@@ -14,14 +14,14 @@ Ultra is the rare piece of essentially "finished" software. I've ironed out most
 To install Ultra, just add the following to your `~/.lein/profiles.clj`
 
 ```clojure
-{:user {:plugins [[venantius/ultra "0.6.0-SNAPSHOT"]]}}
+{:user {:plugins [[venantius/ultra "0.6.0"]]}}
 ```
 
 ### Requirements
 
-Lein 2.9.0
-JDK 8
-Clojure 1.7+
+Lein 2.9.0  
+JDK 8  
+Clojure 1.7+  
 
 If you want to use something older, see [LEGACY_SUPPORT.md](./LEGACY_SUPPORT.md)
 
@@ -137,10 +137,9 @@ Ultra wraps, calls, or draws inspiration from the following libraries, and their
  - [greglook/whidbey](https://github.com/greglook/whidbey) - Puget nREPL middleware
  - [jaycfields/expectations](https://github.com/jaycfields/expectations) - The Expectations testing library
  - [pjstadig/humane-test-output](https://github.com/pjstadig/humane-test-output) - Diffs in tests using clojure.test
- - [zcaudate/vinyasa](https://github.com/zcaudate/vinyasa) - Give your Clojure workflow more flow
 
 ## License
 
-In some cases, I've borrowed code snippets from libraries above and re-written them. Where that is the case, the Copyright of the original author[s] remains in effect. Any modifications to their code, as well as all original content, is Copyright © 2018 W. David Jarvis.
+In some cases, I've borrowed code snippets from libraries above and re-written them. Where that is the case, the Copyright of the original author[s] remains in effect. Any modifications to their code, as well as all original content, is Copyright © 2019 W. David Jarvis.
 
 Distributed under the Eclipse Public License 1.0, the same as Clojure.

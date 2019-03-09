@@ -7,5 +7,5 @@ As of Ultra `0.4.0`, Clojure 1.7.x is required due to reader conditional usage i
 Leiningen version 2.5.2+  
 JDK 8
 
-Note that versions of Ultra prior to 0.5.0 will not play nicely with current alpha releases of Clojure 1.9 (and therefore are unlikely to play nicely with Clojure 1.9 when it is finally released).
+Note that versions of Ultra prior to 0.5.0 will not play nicely with Clojure 1.9.
 

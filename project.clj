@@ -1,4 +1,4 @@
-(defproject venantius/ultra "0.6.0-SNAPSHOT"
+(defproject venantius/ultra "0.6.0"
   :description "Ultra: A Leiningen plugin for a superior development environment"
   :url "http://github.com/venantius/ultra"
   :license {:name "Eclipse Public License"
@@ -15,5 +15,5 @@
                                   [org.clojure/clojure "1.8.0"]]}}
   :test-selectors {:default (complement :demo)
                    :demo :demo}
-  :min-lein-version "2.5.2"
+  :min-lein-version "2.9.0"
   :eval-in-leiningen true)

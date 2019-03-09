@@ -1,5 +1,5 @@
 ## 0.6.0
- * Migrates to `nrepl` from `clojure.tools.nrepl`
+ * Migrates to `nrepl` from `clojure.tools.nrepl`. This is a pretty significant change and was mostly enabled by a LOT of upstream work from the Leiningen, Puget/Whidbey, and nREPL developers and maintainers. It is likely not backwards-compatible with earlier versions of Leiningen.
 
 ## 0.5.4
  * Bump puget dependency. AFAIK this makes us compatible with the new nREPL.
