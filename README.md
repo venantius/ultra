@@ -1,3 +1,5 @@
+**Hi. I haven't been writing software in the last 5 years and various things have changed since then which may mean Ultra no longer works for you. I'm sorry about that, but I'm not going to be able to help. If you're able to fix things, go for it! I'll do my best to accept helpful PRs**
+
 # Ultra
 
 [![CircleCI](https://circleci.com/gh/venantius/ultra.svg?style=svg)](https://circleci.com/gh/venantius/ultra)  
